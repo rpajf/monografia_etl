@@ -1,0 +1,701 @@
+file_name,key,value_type,value_preview
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,paper_id,string,0000028b5cc154f68b8a269f6578f21e31f62977
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,body_text,list,[list with 13 items]
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,bib_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/0000028b5cc154f68b8a269f6578f21e31f62977.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,paper_id,string,0000b6da665726420ab8ac9246d526f2f44d5943
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,body_text,list,[list with 8 items]
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,bib_entries,dict,{dict with 28 keys}
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/0000b6da665726420ab8ac9246d526f2f44d5943.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,paper_id,string,0000b93c66f991236db92dc16fa6db119b27ca12
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,body_text,list,[list with 44 items]
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,bib_entries,dict,{dict with 27 keys}
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/0000b93c66f991236db92dc16fa6db119b27ca12.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,paper_id,string,0000fcce604204b1b9d876dc073eb529eb5ce305
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,abstract,list,[list with 6 items]
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,body_text,list,[list with 58 items]
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,bib_entries,dict,{dict with 58 keys}
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,ref_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/0000fcce604204b1b9d876dc073eb529eb5ce305.json,back_matter,list,[list with 6 items]
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,paper_id,string,000122a9a774ec76fa35ec0c0f6734e7e8d0c541
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,body_text,list,[list with 30 items]
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,bib_entries,dict,{dict with 38 keys}
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,ref_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/000122a9a774ec76fa35ec0c0f6734e7e8d0c541.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,paper_id,string,00013062c83cef3b89e6c5363ea4398571000905
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,body_text,list,[list with 53 items]
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,bib_entries,dict,{dict with 60 keys}
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,ref_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/00013062c83cef3b89e6c5363ea4398571000905.json,back_matter,list,[list with 3 items]
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,paper_id,string,00013694fb8095bb818b64346f791a5419d97c88
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,body_text,list,[list with 91 items]
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,bib_entries,dict,{dict with 30 keys}
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/00013694fb8095bb818b64346f791a5419d97c88.json,back_matter,list,[list with 4 items]
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,paper_id,string,0001418189999fea7f7cbe3e82703d71c85a6fe5
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,body_text,list,[list with 24 items]
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,bib_entries,dict,{dict with 19 keys}
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/0001418189999fea7f7cbe3e82703d71c85a6fe5.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,paper_id,string,000159d40045de3f55c9ddd5d99d760d679d4910
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,body_text,list,[list with 24 items]
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,bib_entries,dict,{dict with 9 keys}
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,ref_entries,dict,{dict with 12 keys}
+document_parses/pdf_json/000159d40045de3f55c9ddd5d99d760d679d4910.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,paper_id,string,00016663c74157a66b4d509d5c4edffd5391bbe0
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,body_text,list,[list with 66 items]
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,bib_entries,dict,{dict with 148 keys}
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/00016663c74157a66b4d509d5c4edffd5391bbe0.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,paper_id,string,0001731462dcd83c5c547774a37071e5cbf981a2
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,body_text,list,[list with 34 items]
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,bib_entries,dict,{dict with 52 keys}
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/0001731462dcd83c5c547774a37071e5cbf981a2.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,paper_id,string,0001bbba65c675eb2c0b1ecea737ac065d7124e1
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,abstract,list,[list with 5 items]
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,body_text,list,[list with 12 items]
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,bib_entries,dict,{dict with 38 keys}
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/0001bbba65c675eb2c0b1ecea737ac065d7124e1.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,paper_id,string,000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,body_text,list,[list with 60 items]
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,bib_entries,dict,{dict with 61 keys}
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000209cd97f65eb8cf1b2ac1d62df2d87c7ac9a2.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,paper_id,string,000213374c11f45495cad8dd976e6bc62e81c59b
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,abstract,list,[list with 3 items]
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,body_text,list,[list with 39 items]
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,bib_entries,dict,{dict with 52 keys}
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,ref_entries,dict,{dict with 12 keys}
+document_parses/pdf_json/000213374c11f45495cad8dd976e6bc62e81c59b.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,paper_id,string,00031cc15aafa30b187ed2cd3790e970e5046895
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,body_text,list,[list with 32 items]
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,bib_entries,dict,{dict with 65 keys}
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/00031cc15aafa30b187ed2cd3790e970e5046895.json,back_matter,list,[list with 4 items]
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,paper_id,string,00033d5a12240a8684cfe943954132b43434cf48
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,body_text,list,[list with 18 items]
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,bib_entries,dict,{dict with 30 keys}
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/00033d5a12240a8684cfe943954132b43434cf48.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,paper_id,string,0003407cc3c49ce5db918dee9f6695e18d3662b9
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,body_text,list,[list with 36 items]
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,bib_entries,dict,{dict with 43 keys}
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,ref_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/0003407cc3c49ce5db918dee9f6695e18d3662b9.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,paper_id,string,00035ac98d8bc38fbca02a1cc957f55141af67c0
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,abstract,list,[list with 4 items]
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,body_text,list,[list with 21 items]
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,bib_entries,dict,{dict with 26 keys}
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,ref_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/00035ac98d8bc38fbca02a1cc957f55141af67c0.json,back_matter,list,[list with 4 items]
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,paper_id,string,0003793cf9e709bc2b9d0c8111186f78fb73fc04
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,body_text,list,[list with 6 items]
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,bib_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,ref_entries,dict,{dict with 0 keys}
+document_parses/pdf_json/0003793cf9e709bc2b9d0c8111186f78fb73fc04.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,paper_id,string,000379d7a7f37a2ccb978862b9f2016bd03259ea
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,abstract,list,[list with 6 items]
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,body_text,list,[list with 14 items]
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,bib_entries,dict,{dict with 23 keys}
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000379d7a7f37a2ccb978862b9f2016bd03259ea.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,paper_id,string,00039b94e6cb7609ecbddee1755314bcfeb77faa
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,body_text,list,[list with 15 items]
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,bib_entries,dict,{dict with 46 keys}
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,ref_entries,dict,{dict with 7 keys}
+document_parses/pdf_json/00039b94e6cb7609ecbddee1755314bcfeb77faa.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,paper_id,string,0003ddc51c4291d742855e9ac56076a3bea33ad7
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,body_text,list,[list with 12 items]
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,bib_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/0003ddc51c4291d742855e9ac56076a3bea33ad7.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,paper_id,string,0003ddfb7ce19bcb3f38907f69676163b9863535
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,body_text,list,[list with 9 items]
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,bib_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/0003ddfb7ce19bcb3f38907f69676163b9863535.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,paper_id,string,0004456994f6c1d5db7327990386d33c01cff32a
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,body_text,list,[list with 55 items]
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,bib_entries,dict,{dict with 24 keys}
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,ref_entries,dict,{dict with 7 keys}
+document_parses/pdf_json/0004456994f6c1d5db7327990386d33c01cff32a.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,paper_id,string,000458d5e0bbf4481698c322b7049c01e6fc0d90
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,abstract,list,[list with 3 items]
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,body_text,list,[list with 52 items]
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,bib_entries,dict,{dict with 68 keys}
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,ref_entries,dict,{dict with 68 keys}
+document_parses/pdf_json/000458d5e0bbf4481698c322b7049c01e6fc0d90.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,paper_id,string,00046b27022615aaec3782ea69c56da3d2fd2ffa
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,body_text,list,[list with 64 items]
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,bib_entries,dict,{dict with 109 keys}
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/00046b27022615aaec3782ea69c56da3d2fd2ffa.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,paper_id,string,0004774b55eb0dad880aba9b572efe362660c5e0
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,body_text,list,[list with 40 items]
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,bib_entries,dict,{dict with 40 keys}
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,ref_entries,dict,{dict with 13 keys}
+document_parses/pdf_json/0004774b55eb0dad880aba9b572efe362660c5e0.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,paper_id,string,00050c2e645a6eb0225c575052cdd5db97d15d44
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,body_text,list,[list with 33 items]
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,bib_entries,dict,{dict with 38 keys}
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,ref_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/00050c2e645a6eb0225c575052cdd5db97d15d44.json,back_matter,list,[list with 5 items]
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,paper_id,string,000525b51f78000644865b63d47ac27c624c5981
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,body_text,list,[list with 22 items]
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,bib_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,ref_entries,dict,{dict with 0 keys}
+document_parses/pdf_json/000525b51f78000644865b63d47ac27c624c5981.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,paper_id,string,0005580cbb4ab0815ae83936686c58a32fe584dc
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,body_text,list,[list with 74 items]
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,bib_entries,dict,{dict with 124 keys}
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,ref_entries,dict,{dict with 19 keys}
+document_parses/pdf_json/0005580cbb4ab0815ae83936686c58a32fe584dc.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,paper_id,string,0005a68bbed13ad78ca3d1be654078b8729f8975
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,body_text,list,[list with 30 items]
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,bib_entries,dict,{dict with 218 keys}
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,ref_entries,dict,{dict with 12 keys}
+document_parses/pdf_json/0005a68bbed13ad78ca3d1be654078b8729f8975.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,paper_id,string,0005d253951fedc237715a37db147032eea28912
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,body_text,list,[list with 15 items]
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,bib_entries,dict,{dict with 11 keys}
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/0005d253951fedc237715a37db147032eea28912.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,paper_id,string,0005d592db6946c5e2612c29420f3fe7cd53c952
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,body_text,list,[list with 87 items]
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,bib_entries,dict,{dict with 148 keys}
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,ref_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/0005d592db6946c5e2612c29420f3fe7cd53c952.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,paper_id,string,0005eb715119146143c2695872d91b13172d6e4a
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,body_text,list,[list with 23 items]
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,bib_entries,dict,{dict with 33 keys}
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/0005eb715119146143c2695872d91b13172d6e4a.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,paper_id,string,0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,body_text,list,[list with 35 items]
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,bib_entries,dict,{dict with 26 keys}
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/0005fd8c42aa154fb6ac2e4ccb2331630ce49b4c.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,paper_id,string,00060fb61742ff60e4e3ba4648c74a34cfe9560d
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,body_text,list,[list with 12 items]
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,bib_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,ref_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/00060fb61742ff60e4e3ba4648c74a34cfe9560d.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,paper_id,string,0006161a956fafa874c1aacefe65cc61d8c65275
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,body_text,list,[list with 53 items]
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,bib_entries,dict,{dict with 100 keys}
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,ref_entries,dict,{dict with 24 keys}
+document_parses/pdf_json/0006161a956fafa874c1aacefe65cc61d8c65275.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,paper_id,string,00061e75c25ec966a7dc4fb268176812d4b1a700
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,body_text,list,[list with 31 items]
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,bib_entries,dict,{dict with 46 keys}
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/00061e75c25ec966a7dc4fb268176812d4b1a700.json,back_matter,list,[list with 3 items]
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,paper_id,string,00064989acb3906e6dbedea6157c0810eb51a9c1
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,body_text,list,[list with 57 items]
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,bib_entries,dict,{dict with 15 keys}
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/00064989acb3906e6dbedea6157c0810eb51a9c1.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,paper_id,string,000680e3114af4aa10e8f208cd162a61195f4465
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,body_text,list,[list with 20 items]
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,bib_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,ref_entries,dict,{dict with 0 keys}
+document_parses/pdf_json/000680e3114af4aa10e8f208cd162a61195f4465.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,paper_id,string,0006c00b57451adc55bf90570027d60fe292c234
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,body_text,list,[list with 30 items]
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,bib_entries,dict,{dict with 27 keys}
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/0006c00b57451adc55bf90570027d60fe292c234.json,back_matter,list,[list with 4 items]
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,paper_id,string,000710f5df770eb8aa3a0ac83022f3376a76aa0f
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,body_text,list,[list with 29 items]
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,bib_entries,dict,{dict with 50 keys}
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000710f5df770eb8aa3a0ac83022f3376a76aa0f.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,paper_id,string,00073cb65dd2596249230fab8b15a71c4a135895
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,body_text,list,[list with 15 items]
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,bib_entries,dict,{dict with 30 keys}
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/00073cb65dd2596249230fab8b15a71c4a135895.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,paper_id,string,00075c64ada4d1530d1fee02294a8201450f280d
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,body_text,list,[list with 19 items]
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,bib_entries,dict,{dict with 37 keys}
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,ref_entries,dict,{dict with 7 keys}
+document_parses/pdf_json/00075c64ada4d1530d1fee02294a8201450f280d.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,paper_id,string,0007f972812bb45abbe5b0edf8db5359d49c23eb
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,body_text,list,[list with 23 items]
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,bib_entries,dict,{dict with 54 keys}
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/0007f972812bb45abbe5b0edf8db5359d49c23eb.json,back_matter,list,[list with 4 items]
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,paper_id,string,00087521166e932bcd178b928c3f2eccaa5e7e51
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,body_text,list,[list with 21 items]
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,bib_entries,dict,{dict with 66 keys}
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,ref_entries,dict,{dict with 20 keys}
+document_parses/pdf_json/00087521166e932bcd178b928c3f2eccaa5e7e51.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,paper_id,string,00089fa6540119f93819438e59d84f5e91d8c75f
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,body_text,list,[list with 55 items]
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,bib_entries,dict,{dict with 79 keys}
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,ref_entries,dict,{dict with 18 keys}
+document_parses/pdf_json/00089fa6540119f93819438e59d84f5e91d8c75f.json,back_matter,list,[list with 3 items]
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,paper_id,string,0008c57de475138d903f2cca7003cf1e1ad93cf4
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,body_text,list,[list with 52 items]
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,bib_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,ref_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/0008c57de475138d903f2cca7003cf1e1ad93cf4.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,paper_id,string,00092970eddd063aca001b5bb021be5557e47033
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,abstract,list,[list with 3 items]
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,body_text,list,[list with 17 items]
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,bib_entries,dict,{dict with 70 keys}
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,ref_entries,dict,{dict with 7 keys}
+document_parses/pdf_json/00092970eddd063aca001b5bb021be5557e47033.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,paper_id,string,00094c04cbd8e0241c3f6cda89b41a79e4bab223
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,abstract,list,[list with 3 items]
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,body_text,list,[list with 37 items]
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,bib_entries,dict,{dict with 30 keys}
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/00094c04cbd8e0241c3f6cda89b41a79e4bab223.json,back_matter,list,[list with 7 items]
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,paper_id,string,0009745a11d206af9e405e00677c51b01251dba7
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,body_text,list,[list with 27 items]
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,bib_entries,dict,{dict with 83 keys}
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/0009745a11d206af9e405e00677c51b01251dba7.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,paper_id,string,000a0fc8bbef80410199e690191dc3076a290117
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,abstract,list,[list with 4 items]
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,body_text,list,[list with 31 items]
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,bib_entries,dict,{dict with 67 keys}
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000a0fc8bbef80410199e690191dc3076a290117.json,back_matter,list,[list with 7 items]
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,paper_id,string,000a19e6791779daf1c68ea45a559555d42e9e68
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,abstract,list,[list with 4 items]
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,body_text,list,[list with 67 items]
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,bib_entries,dict,{dict with 33 keys}
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,ref_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/000a19e6791779daf1c68ea45a559555d42e9e68.json,back_matter,list,[list with 5 items]
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,paper_id,string,000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,abstract,list,[list with 4 items]
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,body_text,list,[list with 15 items]
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,bib_entries,dict,{dict with 24 keys}
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000affa746a03f1fe4e3b3ef1a62fdfa9b9ac52a.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,paper_id,string,000b0174f992cb326a891f756d4ae5531f2845f7
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,body_text,list,[list with 10 items]
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,bib_entries,dict,{dict with 77 keys}
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,ref_entries,dict,{dict with 12 keys}
+document_parses/pdf_json/000b0174f992cb326a891f756d4ae5531f2845f7.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,paper_id,string,000b269c8b085b483203ecd4c7fc182ea97aef83
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,body_text,list,[list with 14 items]
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,bib_entries,dict,{dict with 20 keys}
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/000b269c8b085b483203ecd4c7fc182ea97aef83.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,paper_id,string,000b7d1517ceebb34e1e3e817695b6de03e2fa78
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,body_text,list,[list with 1 items]
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,bib_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,paper_id,string,000b81515f556d3afc263cd917e2e5a89034b831
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,abstract,list,[list with 8 items]
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,body_text,list,[list with 64 items]
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,bib_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,ref_entries,dict,{dict with 67 keys}
+document_parses/pdf_json/000b81515f556d3afc263cd917e2e5a89034b831.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,paper_id,string,000b88a3a342f55aab834668b790458e1d4bab43
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,body_text,list,[list with 39 items]
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,bib_entries,dict,{dict with 51 keys}
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000b88a3a342f55aab834668b790458e1d4bab43.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,paper_id,string,000b94817ef749d12482ab842ac840088ce3c130
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,body_text,list,[list with 26 items]
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,bib_entries,dict,{dict with 34 keys}
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000b94817ef749d12482ab842ac840088ce3c130.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,paper_id,string,000bc3d4637530496ac4cb798e10d95709eff92d
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,body_text,list,[list with 43 items]
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,bib_entries,dict,{dict with 13 keys}
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000bc3d4637530496ac4cb798e10d95709eff92d.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,paper_id,string,000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,body_text,list,[list with 41 items]
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,bib_entries,dict,{dict with 22 keys}
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000bcb3aee2d3acd5f5cd2b25e1b0f132fbc430d.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,paper_id,string,000c0e0320dd2af02a4eebd8e210c845155d0f72
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,body_text,list,[list with 39 items]
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,bib_entries,dict,{dict with 40 keys}
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000c0e0320dd2af02a4eebd8e210c845155d0f72.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,paper_id,string,000c215e28fffa926efa666952fabcb95bda5f5e
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,abstract,list,[list with 3 items]
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,body_text,list,[list with 21 items]
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,bib_entries,dict,{dict with 34 keys}
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,ref_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/000c215e28fffa926efa666952fabcb95bda5f5e.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,paper_id,string,000c2574ee6b86127571caf55ec859e3fe3015ea
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,body_text,list,[list with 10 items]
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,bib_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/000c2574ee6b86127571caf55ec859e3fe3015ea.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,paper_id,string,000c7903a93566e1c7e128929b7ad79bc493f9fb
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,body_text,list,[list with 16 items]
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,bib_entries,dict,{dict with 16 keys}
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,ref_entries,dict,{dict with 0 keys}
+document_parses/pdf_json/000c7903a93566e1c7e128929b7ad79bc493f9fb.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,paper_id,string,000cad8dfc9c3aa602688f1baafbd3a6f2e504ec
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,body_text,list,[list with 41 items]
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,bib_entries,dict,{dict with 39 keys}
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,ref_entries,dict,{dict with 15 keys}
+document_parses/pdf_json/000cad8dfc9c3aa602688f1baafbd3a6f2e504ec.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,paper_id,string,000cbf0fbcfe717425f3858cf01a6b98481590f3
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,abstract,list,[list with 5 items]
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,body_text,list,[list with 34 items]
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,bib_entries,dict,{dict with 35 keys}
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,ref_entries,dict,{dict with 9 keys}
+document_parses/pdf_json/000cbf0fbcfe717425f3858cf01a6b98481590f3.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,paper_id,string,000cd7f3438b0db259f390432ad42e2c7c2fd85f
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,body_text,list,[list with 8 items]
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,bib_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/000cd7f3438b0db259f390432ad42e2c7c2fd85f.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,paper_id,string,000d11dac7734b7cffb900d20d022f2211af0059
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,body_text,list,[list with 31 items]
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,bib_entries,dict,{dict with 142 keys}
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,ref_entries,dict,{dict with 16 keys}
+document_parses/pdf_json/000d11dac7734b7cffb900d20d022f2211af0059.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,paper_id,string,000d3b13a645c10826aaf2cf0bb0dc18b9580ac2
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,body_text,list,[list with 14 items]
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,bib_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/000d3b13a645c10826aaf2cf0bb0dc18b9580ac2.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,paper_id,string,000d3eb1ac4b3e795f6c0afcd937e4d0609385ad
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,body_text,list,[list with 38 items]
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,bib_entries,dict,{dict with 56 keys}
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,ref_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/000d3eb1ac4b3e795f6c0afcd937e4d0609385ad.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,paper_id,string,000e0a376bbd2db6e14aab9856be9b729d9112fa
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,body_text,list,[list with 2 items]
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,bib_entries,dict,{dict with 9 keys}
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/000e0a376bbd2db6e14aab9856be9b729d9112fa.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,paper_id,string,000e0d1b274d5333a2f7f59fb506b600035c8a94
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,body_text,list,[list with 64 items]
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,bib_entries,dict,{dict with 25 keys}
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000e0d1b274d5333a2f7f59fb506b600035c8a94.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,paper_id,string,000e24896bcd657627abb3576c684b08d570a57b
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,body_text,list,[list with 31 items]
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,bib_entries,dict,{dict with 45 keys}
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,ref_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/000e24896bcd657627abb3576c684b08d570a57b.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,paper_id,string,000e43590fdd2e011cfadaa14e6c14f318d11bbb
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,body_text,list,[list with 64 items]
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,bib_entries,dict,{dict with 30 keys}
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,ref_entries,dict,{dict with 9 keys}
+document_parses/pdf_json/000e43590fdd2e011cfadaa14e6c14f318d11bbb.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,paper_id,string,000e587e6cbcdc05a615739d3c9b78e21428202b
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,body_text,list,[list with 46 items]
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,bib_entries,dict,{dict with 49 keys}
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,ref_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/000e587e6cbcdc05a615739d3c9b78e21428202b.json,back_matter,list,[list with 3 items]
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,paper_id,string,000e5f36122f81fec6a4bd034330bc0935e413a8
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,body_text,list,[list with 89 items]
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,bib_entries,dict,{dict with 70 keys}
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/000e5f36122f81fec6a4bd034330bc0935e413a8.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,paper_id,string,000e60390960955e86202d2bb6a3de5b48c362d0
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,body_text,list,[list with 43 items]
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,bib_entries,dict,{dict with 37 keys}
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,ref_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/000e60390960955e86202d2bb6a3de5b48c362d0.json,back_matter,list,[list with 7 items]
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,paper_id,string,000e6f401f0f46b240cc81f2c9ef41914bfb9e06
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,abstract,list,[list with 4 items]
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,body_text,list,[list with 24 items]
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,bib_entries,dict,{dict with 24 keys}
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,ref_entries,dict,{dict with 7 keys}
+document_parses/pdf_json/000e6f401f0f46b240cc81f2c9ef41914bfb9e06.json,back_matter,list,[list with 7 items]
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,paper_id,string,000e754142ba65ef77c6fdffcbcbe824e141ea7b
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,body_text,list,[list with 9 items]
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,bib_entries,dict,{dict with 11 keys}
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/000e754142ba65ef77c6fdffcbcbe824e141ea7b.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,paper_id,string,000e94ba1ba281b04223bcbb68bd0f1303b47048
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,body_text,list,[list with 58 items]
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,bib_entries,dict,{dict with 43 keys}
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,ref_entries,dict,{dict with 15 keys}
+document_parses/pdf_json/000e94ba1ba281b04223bcbb68bd0f1303b47048.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,paper_id,string,000ed27575c028d3173a3fd59be053446454f985
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,body_text,list,[list with 15 items]
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,bib_entries,dict,{dict with 20 keys}
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/000ed27575c028d3173a3fd59be053446454f985.json,back_matter,list,[list with 3 items]
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,paper_id,string,000ee7a319f964af24836e5b0402cc7576edff6d
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,body_text,list,[list with 7 items]
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,bib_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,ref_entries,dict,{dict with 0 keys}
+document_parses/pdf_json/000ee7a319f964af24836e5b0402cc7576edff6d.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,paper_id,string,000eec3f1e93c3792454ac59415c928ce3a6b4ad
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,abstract,list,[list with 3 items]
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,body_text,list,[list with 90 items]
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,bib_entries,dict,{dict with 85 keys}
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000eec3f1e93c3792454ac59415c928ce3a6b4ad.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,paper_id,string,000f0b5e90112a45a920b49ae0c0ce27a890d4da
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,body_text,list,[list with 67 items]
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,bib_entries,dict,{dict with 102 keys}
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,ref_entries,dict,{dict with 26 keys}
+document_parses/pdf_json/000f0b5e90112a45a920b49ae0c0ce27a890d4da.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,paper_id,string,000f207d1ee7f674091bf5867561c329928990e6
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,body_text,list,[list with 14 items]
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,bib_entries,dict,{dict with 23 keys}
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000f207d1ee7f674091bf5867561c329928990e6.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,paper_id,string,000f692e650531f4cec8f80c117d59a5529850b8
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,body_text,list,[list with 18 items]
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,bib_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,ref_entries,dict,{dict with 6 keys}
+document_parses/pdf_json/000f692e650531f4cec8f80c117d59a5529850b8.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,paper_id,string,000f9e2d3dadab239e44c57471b7a8b9b35452b9
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,body_text,list,[list with 46 items]
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,bib_entries,dict,{dict with 10 keys}
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,ref_entries,dict,{dict with 3 keys}
+document_parses/pdf_json/000f9e2d3dadab239e44c57471b7a8b9b35452b9.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,paper_id,string,00100c41ac5cb705f074dc9a9f8ce582e1bda21d
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,body_text,list,[list with 30 items]
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,bib_entries,dict,{dict with 44 keys}
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,ref_entries,dict,{dict with 15 keys}
+document_parses/pdf_json/00100c41ac5cb705f074dc9a9f8ce582e1bda21d.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,paper_id,string,00102e5960addaa80152672003969e2dffe0d22b
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,body_text,list,[list with 7 items]
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,bib_entries,dict,{dict with 8 keys}
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,ref_entries,dict,{dict with 1 keys}
+document_parses/pdf_json/00102e5960addaa80152672003969e2dffe0d22b.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,paper_id,string,00106ed6da8c33c0ebfb0f7b8ab784624324aef9
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,body_text,list,[list with 76 items]
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,bib_entries,dict,{dict with 104 keys}
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,ref_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/00106ed6da8c33c0ebfb0f7b8ab784624324aef9.json,back_matter,list,[list with 2 items]
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,paper_id,string,00107b3ed5ec1cb7153bb26d71293337229c921c
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,body_text,list,[list with 124 items]
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,bib_entries,dict,{dict with 58 keys}
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,ref_entries,dict,{dict with 15 keys}
+document_parses/pdf_json/00107b3ed5ec1cb7153bb26d71293337229c921c.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,paper_id,string,001085074ee7d900b7be7a43598018650a1c310f
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,body_text,list,[list with 40 items]
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,bib_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/001085074ee7d900b7be7a43598018650a1c310f.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,paper_id,string,001092c86759b902b6b496675683e2ceae1e695b
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,body_text,list,[list with 34 items]
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,bib_entries,dict,{dict with 48 keys}
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,ref_entries,dict,{dict with 11 keys}
+document_parses/pdf_json/001092c86759b902b6b496675683e2ceae1e695b.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,paper_id,string,0010d989cfae87853f2351a37e002edb03bf397f
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,body_text,list,[list with 15 items]
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,bib_entries,dict,{dict with 15 keys}
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,ref_entries,dict,{dict with 5 keys}
+document_parses/pdf_json/0010d989cfae87853f2351a37e002edb03bf397f.json,back_matter,list,[list with 1 items]
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,paper_id,string,0010dfd65288462633492efb3f10b64ee26f5f3f
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,body_text,list,[list with 36 items]
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,bib_entries,dict,{dict with 87 keys}
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,ref_entries,dict,{dict with 4 keys}
+document_parses/pdf_json/0010dfd65288462633492efb3f10b64ee26f5f3f.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,paper_id,string,0010f32ac43ca5864983343672936b536431ae90
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,abstract,list,[list with 1 items]
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,body_text,list,[list with 17 items]
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,bib_entries,dict,{dict with 24 keys}
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,ref_entries,dict,{dict with 9 keys}
+document_parses/pdf_json/0010f32ac43ca5864983343672936b536431ae90.json,back_matter,list,[list with 0 items]
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,paper_id,string,001139d307c2329d2b34a25d5b35ba84c6deb382
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,abstract,list,[list with 2 items]
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,body_text,list,[list with 17 items]
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,bib_entries,dict,{dict with 14 keys}
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,ref_entries,dict,{dict with 2 keys}
+document_parses/pdf_json/001139d307c2329d2b34a25d5b35ba84c6deb382.json,back_matter,list,[list with 3 items]
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,paper_id,string,0011434ec6e6cc726d9643c441988249bd4fe5c6
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,metadata,dict,{dict with 2 keys}
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,abstract,list,[list with 0 items]
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,body_text,list,[list with 58 items]
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,bib_entries,dict,{dict with 45 keys}
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,ref_entries,dict,{dict with 17 keys}
+document_parses/pdf_json/0011434ec6e6cc726d9643c441988249bd4fe5c6.json,back_matter,list,[list with 2 items]

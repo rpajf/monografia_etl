@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install minimal dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir psycopg pandas
+
+# Copy the application script (ZIP will be mounted as volume)
+COPY fetch_db_docker.py fetch_db.py
+
+# Environment variables (can be overridden)
+ENV ZIP_PATH=/data/datasetcovid.zip
+ENV NUM_FILES=10
+ENV VERBOSE=false
+
+# Create data directory for volume mount
+RUN mkdir -p /data
+
+# Default command
+CMD ["python", "fetch_db.py"]
+

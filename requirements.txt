@@ -1,0 +1,26 @@
+
+retry2==0.9.5
+pydantic==2.5.2
+pydantic-settings==2.1.0
+httpx==0.26.0
+isort==5.13.2
+autoflake==2.3.1
+pyright==1.1.368
+loguru==0.7.2
+fastapi==0.111.0
+fastapi-cli==0.0.4
+kagglehub
+fastapi-restful==0.6.0
+fastapi-utilities==0.2.0
+pandas==2.2.1
+
+# PostgreSQL dependencies
+psycopg2-binary==2.9.9  # Keep for compatibility
+psycopg==3.1.18         # Modern psycopg3
+psycopg-binary==3.1.18  # Binary package for psycopg3
+sqlalchemy==2.0.23
+
+# ETL and performance monitoring
+pyarrow==14.0.1
+tqdm==4.66.1
+psutil==5.9.6
