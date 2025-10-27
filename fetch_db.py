@@ -2,6 +2,7 @@
 # pip install kagglehub[pandas-datasets]
 # import kagglehub
 # from kagglehub import KaggleDatasetAdapter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
 # Set the path to the file you'd like to load
@@ -11,8 +12,9 @@ import io
 import csv
 import json
 from itertools import islice
-from etl_psycopg3 import DatabaseConnector
 
+from etl_psycopg3 import DatabaseConnector
+from schemas import Artigo
 
 # # Load the latest version
 # df = kagglehub.load_dataset(
@@ -111,6 +113,9 @@ class ZipFileAnalyzer:
             
             return average_size
         
+    
+
+        
     def get_metadata_info(self):
         with zipfile.ZipFile(zip_path, "r") as z:
             # Find the path of metadata.csv inside the zip
@@ -158,7 +163,8 @@ class ZipFileAnalyzer:
                 matches = metadata_df[metadata_df['sha'].astype(str).str.contains(paper_id, na=False)]
                 if not matches.empty:
                     print(f"\n🔍 Found {len(matches)} match(es) for paper_id = {paper_id}")
-                    print(matches[['title', 'doi', 'journal', 'publish_time', 'url']])
+                    print(matches[['title', 'authors','doi', 'journal', 'publish_time', 'url']])
+                    print('matches', matches)
                     return matches
             else:
                 print(f"⚠️ No matches found for {paper_id}")
@@ -168,32 +174,67 @@ class ZipFileAnalyzer:
 
         
 
-    def get_files_data(self, number_of_files=2):
+    def get_files_data(self, number_of_files):
         with zipfile.ZipFile(self.zip_path, "r") as z:
             # json_files = []
             # all_files = z.namelist()
             all_data = []
+            body_records = []
             data_dict = {}
+            records = []
+            cite_rows = []
             json_files = [f for f in z.namelist() if f.endswith('.json')]
             for filename in json_files[:number_of_files]:
                 with z.open(filename) as f:
                     data = json.load(f)
                     # all_data.append(data)
                     data_dict[filename] = data
-            print('json files qtd', len(json_files))
-            print('')
-            # print("all data", all_data[0])  
+                    body_text = " ".join([p["text"] for p in data.get("body_text", [])])
+
+                    # Adiciona registro principal
+                    records.append({
+                        "file_name": filename,
+                        "paper_id": data.get("paper_id"),
+                        "title": data.get("metadata", {}).get("title"),
+                        "authors": [a.get("last", "") for a in data.get("metadata", {}).get("authors", [])],
+                        "body_text": body_text
+                    })
+
+                    for p in data.get("body_text", []):
+                        cite_spans = p.get("cite_spans", [])
+                        body_records.append({
+                             "title": data.get("metadata", {}).get("title"),
+                            "paper_id": data.get("paper_id"),
+                            "section": p.get("section"),
+                            "text": p.get("text"),
+
+                        }) 
+                        if cite_spans:
+                            for c in cite_spans:
+                                cite_rows.append({
+                                    "paper_id": data.get("paper_id"),
+                                    "section": p.get("section"),
+                                    "cite_text": c.get("text"),
+                                    "ref_id": c.get("ref_id")
+                                })
+                    # for p in data.get("body_text", []):
+                    #     print('p', p)
+                    #     cite_rows.append({
+                    #         "paper_id": data.get("paper_id"),
+                    #         "section": p.get("section"),
+                    #         "cite_spans": p.get("cite_spans")
+                    #     })     
             first_file = list(data_dict.keys())[0]
-
-            for file_name, content in list(data_dict.items())[:2]:
-                print(f"\n📝 Arquivo: {file_name}")
-                print(json.dumps(content, indent=2))
-
+            articles_df = pd.DataFrame(records)
+            body_text_df = pd.DataFrame(body_records)
+            cite_rows_df = pd.DataFrame(cite_rows)
+            # print("cite", cite_rows_df)
+            # print("body", body_text_df)
             # files_df = 
             # print(f"First file name: {first_file}")
             # print(f"First file content:\n{json.dumps(data_dict[first_file], indent=2)}")
 
-        return data_dict
+        return body_text_df, cite_rows_df
     
     def get_files_data_no_references(self, number_of_files=2):
         with zipfile.ZipFile(self.zip_path, "r") as z:
@@ -234,11 +275,6 @@ class ZipFileAnalyzer:
             for filename in json_files[:number_of_files]:
                 with z.open(filename) as f:
                     data = json.load(f)
-
-                    # Remove campos pesados
-                    data.pop("bib_entries", None)
-                    data.pop("ref_entries", None)
-                    data.pop("back_matter", None)
 
                     # Concatena o corpo do texto em um único campo
                     body_text = " ".join([p["text"] for p in data.get("body_text", [])])
@@ -306,17 +342,81 @@ if __name__ == "__main__":
     # Analyze JSON files - you can change the number of files to analyze
     # results = analyzer.return_file_category(num_files=5)  # Change 5 to any number you want
     
-    # analyzer.get_files_data(number_of_files=2)
+    body_text_df, cite_text_df = analyzer.get_files_data(number_of_files=None)
+    # print('body',body_text_df)
     # analyzer.return_file_category()
     # analyzer.average_file_size()
     # analyzer.return_files_size()
     # analyzer.get_metadata_info()
     # analyzer.get_files_data_as_dataframe()
-    analyzer.get_files_data_no_references(number_of_files=1)
-    paper_id = "0000028b5cc154f68b8a269f6578f21e31f62977"
+    # analyzer.get_files_data_no_references(number_of_files=1)
+    # paper_id = "0000028b5cc154f68b8a269f6578f21e31f62977"
+    print('len', len(body_text_df))
 
     # analyzer.return_metada_as_df(paper_id=paper_id)
+    connector = DatabaseConnector()
+    table = 'artigos'
+    models_artigos = [Artigo(**row) for row in body_text_df.to_dict(orient="records")]
+
+    print(f"\n{'='*60}")
+    print(f"🧪 TESTE DE PERFORMANCE - {len(models_artigos)} registros")
+    print(f"{'='*60}\n")
+
+    # MÉTODO 1: Inserção padrão (executemany)
+    # print("📌 MÉTODO 1: Inserção Padrão (executemany)")
+    # connector.insert_into_table_typed(
+    #     data_model=models_artigos,
+    #     table_name=table
+    # )
+
+    # MÉTODO 2: Paralelo com conexões novas (LENTO - não recomendado)
+    # print("\n📌 MÉTODO 2: Paralelo com novas conexões (batch_process_rows)")
+    # connector.batch_process_rows(
+    #     data_model_list=models_artigos,
+    #     table_name=table,
+    #     batch_size=1000,
+    #     max_workers=4
+    # )
+
+    # MÉTODO 3: RECOMENDADO para datasets pequenos/médios
+    print("📌 MÉTODO 3 (RECOMENDADO): Transação única otimizada")
+    connector.insert_optimized_single_transaction(
+        table_name=table,
+        data_model_list=models_artigos
+    )
+
+    # MÉTODO 4: Paralelo com pool (útil apenas para datasets MUITO grandes)
+    # print("\n📌 MÉTODO 4: Paralelo com ConnectionPool")
+    # connector.batch_process_with_pool(
+    #     table_name="artigos",
+    #     data_model_list=models_artigos,
+    #     batch_size=5000,  # Aumentado para reduzir overhead
+    #     max_workers=3      # Reduzido para evitar contention
+    # )
+
+    # columns = """
+    #     id SERIAL PRIMARY KEY,
+    #     paper_id VARCHAR(100) NOT NULL,
+    #     title TEXT,
+    #     section TEXT,
+    #     content TEXT,
+    #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    # """
+    # connector.create_table("articles", columns)
+
     # connector = DatabaseConnector()
+
+    # columns = """
+    #     id SERIAL PRIMARY KEY,
+    #     paper_id VARCHAR(100) NOT NULL,
+    #     section TEXT,
+    #     ref_id VARCHAR(50),
+    #     cite_text TEXT,
+    #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    # """
+
+    # connector.create_table("articles_citation", columns)
+
 
    
     # Access the results programmatically
