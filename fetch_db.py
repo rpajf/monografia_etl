@@ -2,33 +2,29 @@
 # pip install kagglehub[pandas-datasets]
 # import kagglehub
 # from kagglehub import KaggleDatasetAdapter
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
 # Set the path to the file you'd like to load
 import pandas as pd
 import zipfile
-import io
-import csv
 import json
-from itertools import islice
 
 from etl_psycopg3 import DatabaseConnector
-from schemas import Artigo
+from schemas import Artigo, ArtigoStaging
 
 # # Load the latest version
 # df = kagglehub.load_dataset(
 #   KaggleDatasetAdapter.PANDAS,
 #   "allen-institute-for-ai/CORD-19-research-challenge",
 #   file_path,
-#   # Provide any additional arguments like 
-#   # sql_query or pandas_kwargs. See the 
+#   # Provide any additional arguments like
+#   # sql_query or pandas_kwargs. See the
 #   # documenation for more information:
 #   # https://github.com/Kaggle/kagglehub/blob/main/README.md#kaggledatasetadapterpandas
 # )
 
-path = '/Users/raphaelportela/datasetcovid.zip'
-OUTPUT_DIR = '/Users/raphaelportela/monografia_2025/mono_2025'
+path = "/Users/raphaelportela/datasetcovid.zip"
+OUTPUT_DIR = "/Users/raphaelportela/monografia_2025/mono_2025"
 # https://pentaho.com/
 # glue AWS
 # INTEGRATION SERVICES
@@ -44,18 +40,19 @@ OUTPUT_DIR = '/Users/raphaelportela/monografia_2025/mono_2025'
 # )
 
 
-
 zip_path = "/Users/raphaelportela/datasetcovid.zip"
+
 
 class ZipFileAnalyzer:
     def __init__(self, zip_path):
         self.zip_path = zip_path
-    
+
     def analyze(self):
         with zipfile.ZipFile(self.zip_path, "r") as z:
             all_files = z.namelist()
             total_files = len(all_files)
             print(f"📊 Total files in ZIP: {total_files:,}")
+
     def return_files_size(self):
         with zipfile.ZipFile(self.zip_path, "r") as z:
             all_files = z.namelist()
@@ -79,8 +76,8 @@ class ZipFileAnalyzer:
             all_files = z.namelist()
             total_files = len(all_files)
             print(f"📊 Total files in ZIP: {total_files:,}")
-            json_files = [f for f in all_files if f.endswith('.json')]
-            csv_files = [f for f in all_files if f.endswith('.csv')]
+            json_files = [f for f in all_files if f.endswith(".json")]
+            csv_files = [f for f in all_files if f.endswith(".csv")]
             print(f"   JSON files: {len(json_files):,}")
             print(f"   CSV files: {len(csv_files):,}")
             print(f"   Other files: {total_files - len(json_files) - len(csv_files):,}")
@@ -94,28 +91,29 @@ class ZipFileAnalyzer:
         """Calculate and return the average file size in the ZIP"""
         with zipfile.ZipFile(self.zip_path, "r") as z:
             all_files = z.namelist()
-            
+
             if not all_files:
                 print("⚠️  ZIP file is empty!")
                 return 0
-            
+
             total_size = 0
             for file in all_files:
                 total_size += z.getinfo(file).file_size
-            
-            average_size = total_size / len(all_files)
-            
-            # Print formatted results
-            print(f"📊 File Size Statistics:")
-            print(f"   Total files: {len(all_files):,}")
-            print(f"   Total size: {total_size:,} bytes ({total_size / (1024**2):.2f} MB)")
-            print(f"   Average size: {average_size:,.2f} bytes ({average_size / 1024:.2f} KB)")
-            
-            return average_size
-        
-    
 
-        
+            average_size = total_size / len(all_files)
+
+            # Print formatted results
+            print("📊 File Size Statistics:")
+            print(f"   Total files: {len(all_files):,}")
+            print(
+                f"   Total size: {total_size:,} bytes ({total_size / (1024**2):.2f} MB)"
+            )
+            print(
+                f"   Average size: {average_size:,.2f} bytes ({average_size / 1024:.2f} KB)"
+            )
+
+            return average_size
+
     def get_metadata_info(self):
         with zipfile.ZipFile(zip_path, "r") as z:
             # Find the path of metadata.csv inside the zip
@@ -139,10 +137,9 @@ class ZipFileAnalyzer:
         print("Number of records:", len(metadata))
         print(metadata.head(3))
         return metadata
-    
+
     def return_metada_as_df(self, paper_id=None):
         with zipfile.ZipFile(zip_path, "r") as z:
-    # Find the metadata.csv file (it might be nested)
             metadata_path = None
             for name in z.namelist():
                 if "metadata.csv" in name:
@@ -153,38 +150,59 @@ class ZipFileAnalyzer:
             if metadata_path:
                 with z.open(metadata_path) as f:
                     metadata_df = pd.read_csv(f, low_memory=False)
-                print(f"✅ Loaded metadata.csv with {len(metadata_df):,} rows and {len(metadata_df.columns)} columns.")
+                print(
+                    f"✅ Loaded metadata.csv with {len(metadata_df):,} rows and {len(metadata_df.columns)} columns."
+                )
                 print("\n📄 First 20 rows:\n")
                 print(metadata_df.head(20))
                 print("Columns:", list(metadata_df.columns))
             else:
                 print("❌ metadata.csv not found inside the ZIP.")
             if paper_id:
-                matches = metadata_df[metadata_df['sha'].astype(str).str.contains(paper_id, na=False)]
+                matches = metadata_df[
+                    metadata_df["sha"].astype(str).str.contains(paper_id, na=False)
+                ]
                 if not matches.empty:
-                    print(f"\n🔍 Found {len(matches)} match(es) for paper_id = {paper_id}")
-                    print(matches[['title', 'authors','doi', 'journal', 'publish_time', 'url']])
-                    print('matches', matches)
+                    print(
+                        f"\n🔍 Found {len(matches)} match(es) for paper_id = {paper_id}"
+                    )
+                    print(
+                        matches[
+                            [
+                                "title",
+                                "authors",
+                                "doi",
+                                "journal",
+                                "publish_time",
+                                "url",
+                            ]
+                        ]
+                    )
+                    print("matches", matches)
                     return matches
             else:
                 print(f"⚠️ No matches found for {paper_id}")
                 return None
 
-
-
-        
-
-    def get_files_data(self, number_of_files):
+    def get_paragraphs_data(self, number_of_files, offset=0):
         with zipfile.ZipFile(self.zip_path, "r") as z:
-            # json_files = []
-            # all_files = z.namelist()
-            all_data = []
             body_records = []
             data_dict = {}
             records = []
             cite_rows = []
-            json_files = [f for f in z.namelist() if f.endswith('.json')]
-            for filename in json_files[:number_of_files]:
+            start_index = offset
+            json_files = [f for f in z.namelist() if f.endswith(".json")]
+            end_index = offset + number_of_files if number_of_files else len(json_files)
+
+            # DEBUG: Mostra informações do slice
+            total_jsons = len(json_files)
+            actual_slice = json_files[start_index:end_index]
+            print(f"🔍 DEBUG: Total JSONs no ZIP: {total_jsons:,}")
+            print(f"🔍 DEBUG: Slice solicitado: [{start_index:,}:{end_index:,}]")
+            print(f"🔍 DEBUG: JSONs no slice: {len(actual_slice):,}")
+
+            # for filename in json_files[:number_of_files]:
+            for filename in actual_slice:
                 with z.open(filename) as f:
                     data = json.load(f)
                     # all_data.append(data)
@@ -192,56 +210,63 @@ class ZipFileAnalyzer:
                     body_text = " ".join([p["text"] for p in data.get("body_text", [])])
 
                     # Adiciona registro principal
-                    records.append({
-                        "file_name": filename,
-                        "paper_id": data.get("paper_id"),
-                        "title": data.get("metadata", {}).get("title"),
-                        "authors": [a.get("last", "") for a in data.get("metadata", {}).get("authors", [])],
-                        "body_text": body_text
-                    })
+                    records.append(
+                        {
+                            "file_name": filename,
+                            "paper_id": data.get("paper_id"),
+                            "title": data.get("metadata", {}).get("title"),
+                            "authors": [
+                                a.get("last", "")
+                                for a in data.get("metadata", {}).get("authors", [])
+                            ],
+                            "body_text": body_text,
+                        }
+                    )
 
                     for p in data.get("body_text", []):
                         cite_spans = p.get("cite_spans", [])
-                        body_records.append({
-                             "title": data.get("metadata", {}).get("title"),
-                            "paper_id": data.get("paper_id"),
-                            "section": p.get("section"),
-                            "text": p.get("text"),
-
-                        }) 
+                        body_records.append(
+                            {
+                                "title": data.get("metadata", {}).get("title"),
+                                "paper_id": data.get("paper_id"),
+                                "section": p.get("section"),
+                                "text": p.get("text"),
+                            }
+                        )
                         if cite_spans:
                             for c in cite_spans:
-                                cite_rows.append({
-                                    "paper_id": data.get("paper_id"),
-                                    "section": p.get("section"),
-                                    "cite_text": c.get("text"),
-                                    "ref_id": c.get("ref_id")
-                                })
-                    # for p in data.get("body_text", []):
-                    #     print('p', p)
-                    #     cite_rows.append({
-                    #         "paper_id": data.get("paper_id"),
-                    #         "section": p.get("section"),
-                    #         "cite_spans": p.get("cite_spans")
-                    #     })     
-            first_file = list(data_dict.keys())[0]
-            articles_df = pd.DataFrame(records)
+                                cite_rows.append(
+                                    {
+                                        "paper_id": data.get("paper_id"),
+                                        "section": p.get("section"),
+                                        "cite_text": c.get("text"),
+                                        "ref_id": c.get("ref_id"),
+                                    }
+                                )
+
             body_text_df = pd.DataFrame(body_records)
             cite_rows_df = pd.DataFrame(cite_rows)
-            # print("cite", cite_rows_df)
-            # print("body", body_text_df)
-            # files_df = 
-            # print(f"First file name: {first_file}")
-            # print(f"First file content:\n{json.dumps(data_dict[first_file], indent=2)}")
+
+            # Print de quantos JSONs foram processados neste batch
+            num_jsons = len(data_dict)
+            num_registros = len(body_records)
+            print(
+                f"📄 Lidos {num_jsons:,} arquivos JSON do ZIP (offset {start_index:,} a {start_index + num_jsons:,})"
+            )
+            print(
+                f"📝 Gerados {num_registros:,} registros (média de {num_registros/num_jsons:.1f} registros por JSON)"
+            )
 
         return body_text_df, cite_rows_df
-    
+
+    # def increment_offset_and_get_files_data(self, number_of_siles,offset, number_of_files, offset=0):
+
     def get_files_data_no_references(self, number_of_files=2):
         with zipfile.ZipFile(self.zip_path, "r") as z:
             data_dict = {}
-            json_files = [f for f in z.namelist() if f.endswith('.json')]
+            json_files = [f for f in z.namelist() if f.endswith(".json")]
 
-            print('📦 Total de arquivos JSON encontrados:', len(json_files))
+            print("📦 Total de arquivos JSON encontrados:", len(json_files))
 
             for filename in json_files[:number_of_files]:
                 with z.open(filename) as f:
@@ -260,107 +285,203 @@ class ZipFileAnalyzer:
                 print(json.dumps(content, indent=2))
 
         return data_dict
-    def get_files_data_as_dataframe(self, number_of_files=2):
+
+    def get_files_data_as_dataframe(self, number_of_files, offset=0):
         """
         Lê arquivos JSON do dataset CORD-19 dentro de um ZIP,
         remove seções não utilizadas e converte em DataFrames.
         """
         with zipfile.ZipFile(self.zip_path, "r") as z:
-            json_files = [f for f in z.namelist() if f.endswith('.json')]
-            print('📦 Total de arquivos JSON encontrados:', len(json_files))
+            json_files = [f for f in z.namelist() if f.endswith(".json")]
+            print("📦 Total de arquivos JSON encontrados:", len(json_files))
 
-            records = []        # lista de artigos resumidos
-            body_records = []   # lista de parágrafos (opcional)
+            records = []
+            body_records = []
+            start_index = offset
+            end_index = offset + number_of_files if number_of_files else len(json_files)
 
-            for filename in json_files[:number_of_files]:
+            total_jsons = len(json_files)
+            actual_slice = json_files[start_index:end_index]
+            print(f"🔍 DEBUG: Total JSONs no ZIP: {total_jsons:,}")
+            print(f"🔍 DEBUG: Slice solicitado: [{start_index:,}:{end_index:,}]")
+            print(f"🔍 DEBUG: JSONs no slice: {len(actual_slice):,}")
+
+            for filename in actual_slice:
                 with z.open(filename) as f:
                     data = json.load(f)
-
                     # Concatena o corpo do texto em um único campo
                     body_text = " ".join([p["text"] for p in data.get("body_text", [])])
-
+                    # print('body_text', body_text)
                     # Adiciona registro principal
-                    records.append({
-                        "file_name": filename,
-                        "paper_id": data.get("paper_id"),
-                        "title": data.get("metadata", {}).get("title"),
-                        "authors": [a.get("last", "") for a in data.get("metadata", {}).get("authors", [])],
-                        "body_text": body_text
-                    })
+                    records.append(
+                        {
+                            "paper_id": data.get("paper_id"),
+                            "title": data.get("metadata", {}).get("title"),
+                            "file_name": filename,
+                            # "authors": [a.get("last", "") for a in data.get("metadata", {}).get("authors", [])],
+                            "body_text": body_text,
+                        }
+                    )
 
                     # (Opcional) Armazena os parágrafos separadamente
-                    for p in data.get("body_text", []):
-                        body_records.append({
-                            "paper_id": data.get("paper_id"),
-                            "section": p.get("section"),
-                            "text": p.get("text")
-                        })
+                    # for p in data.get("body_text", []):
+                    #     body_records.append({
+                    #         "paper_id": data.get("paper_id"),
+                    #         "section": p.get("section"),
+                    #         "text": p.get("text")
+                    #     })
 
             # 🔹 Cria DataFrames principais
             articles_df = pd.DataFrame(records)
-            body_text_df = pd.DataFrame(body_records)
+            # print('printando arquivos do body', body_records)
+            # body_text_df = pd.DataFrame(body_records)
 
-            print(f"\n✅ {len(articles_df)} artigos carregados em 'articles_df'")
-            print(f"✅ {len(body_text_df)} parágrafos carregados em 'body_text_df'")
+            return articles_df
 
-            print("\n📄 Prévia dos dados (articles_df):")
-            print(articles_df.head(3).to_string(index=False))
+    def execute_batch_insert(self, batch_size, num_of_files, offset=0):
+        """
+        Args:
+        batch_size (int): Number of files to process per batch.
+        num_of_files (int): Total number of files to process.
+        offset (int): Starting index for reading from the ZIP file.
+        table_name (str): Target table in the database.
+        """
+        
+        print("🚀 INICIANDO PROCESSAMENTO EM BATCHES - ARTIGOS STAGING")
+        batch_count = 0
+        total_processado = 0
+        jsons_processados = 0
+        start_total = time.perf_counter()
+        connector = DatabaseConnector()
+        if not num_of_files:
+            return
+        print("🚀 INICIANDO PROCESSAMENTO EM BATCHES - ARTIGOS STAGING")
+        print(f"{'='*70}")
+        print(f"📦 Batch size: {batch_size:,} arquivos por vez")
 
-            return {
-                "articles_df": articles_df,
-                "body_text_df": body_text_df
-            }
+        while num_of_files > 0:
+            print(f"\n{'─'*70}")
+            print(f"BATCH {batch_count} - Offset: {offset:,}")
+            print(f"{'─'*70}")
+            if num_of_files == 0:
+                print("nenhum arquivo encontrado")
+                break
+            batch_count += 1
+            start_batch = time.perf_counter()
+            articles_df = self.get_files_data_as_dataframe(
+                number_of_files=batch_size, offset=offset
+            )
+            models_artigos = [
+                ArtigoStaging(**row) for row in articles_df.to_dict(orient="records")
+            ]
 
+            connector.insert_optimized_single_transaction(
+                table_name="artigos_stg", data_model_list=models_artigos
+            )
+            batch_time = time.perf_counter() - start_batch
+            num_of_files -= batch_size
+            offset += batch_size
+            total_processado += len(models_artigos)
+            print(f"⏱️  Tempo do batch: {batch_time:.2f}s")
+        end_total = time.perf_counter()
+        total_time = end_total - start_total
+        print(f"📊 Total de batches processados: {batch_count}")
+        print(f"⏱️  Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
+        print(f"⚡ Taxa média geral: {avg_rate:.0f} registros/segundo")
 
+    def join_tables(self, tables):
+        pass
 
-# ---------------------------------------
-# with zipfile.ZipFile(zip_path, "r") as z:
-#     # Count total files
-#     all_files = z.namelist()
-#     total_files = len(all_files)
-    
-#     print(f"📊 Total files in ZIP: {total_files:,}")
-    
-#     # Count by type
-#     json_files = [f for f in all_files if f.endswith('.json')]
-#     csv_files = [f for f in all_files if f.endswith('.csv')]
-    
-#     print(f"   JSON files: {len(json_files):,}")
-#     print(f"   CSV files: {len(csv_files):,}")
-#     print(f"   Other files: {total_files - len(json_files) - len(csv_files):,}")
-#     print()
-    
-#     # Get just the first 10 entries
-#     first_ten = all_files[:20]
-#     print("📄 First 20 files:")
-#     for name in first_ten:
-#         print(f"   {name}") 
 
 if __name__ == "__main__":
     analyzer = ZipFileAnalyzer(zip_path)
-    
-    # Analyze JSON files - you can change the number of files to analyze
-    # results = analyzer.return_file_category(num_files=5)  # Change 5 to any number you want
-    
-    body_text_df, cite_text_df = analyzer.get_files_data(number_of_files=None)
-    # print('body',body_text_df)
-    # analyzer.return_file_category()
-    # analyzer.average_file_size()
-    # analyzer.return_files_size()
-    # analyzer.get_metadata_info()
-    # analyzer.get_files_data_as_dataframe()
-    # analyzer.get_files_data_no_references(number_of_files=1)
-    # paper_id = "0000028b5cc154f68b8a269f6578f21e31f62977"
-    print('len', len(body_text_df))
 
-    # analyzer.return_metada_as_df(paper_id=paper_id)
     connector = DatabaseConnector()
-    table = 'artigos'
-    models_artigos = [Artigo(**row) for row in body_text_df.to_dict(orient="records")]
+    table = "artigos"
+    batch_size = 15000
+    offset = 0
+    total_processado = 0
+    total_jsons_processados = 0
+    batch_count = 0
 
-    print(f"\n{'='*60}")
-    print(f"🧪 TESTE DE PERFORMANCE - {len(models_artigos)} registros")
-    print(f"{'='*60}\n")
+    print(f"\n{'='*70}")
+    print("🚀 INICIANDO PROCESSAMENTO EM BATCHES")
+    print(f"{'='*70}")
+    print(f"📦 Batch size: {batch_size:,} arquivos por vez")
+    print("🎯 Método: COPY otimizado (transação única por batch)\n")
+
+    # Tempo total de início
+    start_total = time.perf_counter()
+    analyzer.get_files_data_as_dataframe
+
+    while True:
+        batch_count += 1
+        print(f"\n{'─'*70}")
+        print(f"BATCH {batch_count} - Offset: {offset:,}")
+        print(f"{'─'*70}")
+
+        # Tempo do batch
+        start_batch = time.perf_counter()
+
+        # Lê arquivos do ZIP
+        body_text_df, cite_text_df = analyzer.get_paragraphs_data(
+            number_of_files=batch_size, offset=offset
+        )
+
+        # Se não tem mais dados, termina
+        if len(body_text_df) == 0:
+            print("✅ Nenhum dado retornado - processamento concluído!")
+            break
+
+        # Converte para modelos
+        models_artigos = [
+            Artigo(**row) for row in body_text_df.to_dict(orient="records")
+        ]
+
+        # Insere no banco
+        connector.insert_optimized_single_transaction(
+            table_name=table, data_model_list=models_artigos
+        )
+
+        # Calcula métricas do batch
+        batch_time = time.perf_counter() - start_batch
+        batch_rate = len(models_artigos) / batch_time if batch_time > 0 else 0
+
+        jsons_neste_batch = min(
+            batch_size, len(body_text_df)
+        )  # Aproximação conservadora
+
+        total_processado += len(models_artigos)
+        total_jsons_processados += jsons_neste_batch
+        offset += batch_size
+
+        # Mostra progresso do batch
+        print(f"Tempo do batch: {batch_time:.2f}s")
+        print(f"Registros inseridos neste batch: {len(models_artigos):,}")
+        print(f"⚡ Taxa do batch: {batch_rate:.0f} registros/s")
+        print(f" JSONs processados neste batch: ~{jsons_neste_batch:,}")
+        print(
+            f"Total acumulado: {total_processado:,} registros de ~{total_jsons_processados:,} JSONs"
+        )
+
+    # Métricas finais
+    end_total = time.perf_counter()
+    total_time = end_total - start_total
+    avg_rate = total_processado / total_time if total_time > 0 else 0
+
+    print(f"\n{'='*70}")
+    print("🎉 PROCESSAMENTO CONCLUÍDO!")
+    print(f"{'='*70}")
+    print(f"📊 Total de batches processados: {batch_count}")
+    print(f"📁 Total de JSONs processados: ~{total_jsons_processados:,}")
+    print(f"📈 Total de registros inseridos: {total_processado:,}")
+    if total_jsons_processados > 0:
+        print(
+            f"📝 Média de registros por JSON: {total_processado/total_jsons_processados:.1f}"
+        )
+    print(f"⏱️  Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
+    print(f"⚡ Taxa média geral: {avg_rate:.0f} registros/segundo")
+    print(f"{'='*70}\n")
 
     # MÉTODO 1: Inserção padrão (executemany)
     # print("📌 MÉTODO 1: Inserção Padrão (executemany)")
@@ -381,53 +502,5 @@ if __name__ == "__main__":
     # MÉTODO 3: RECOMENDADO para datasets pequenos/médios
     print("📌 MÉTODO 3 (RECOMENDADO): Transação única otimizada")
     connector.insert_optimized_single_transaction(
-        table_name=table,
-        data_model_list=models_artigos
+        table_name=table, data_model_list=models_artigos
     )
-
-    # MÉTODO 4: Paralelo com pool (útil apenas para datasets MUITO grandes)
-    # print("\n📌 MÉTODO 4: Paralelo com ConnectionPool")
-    # connector.batch_process_with_pool(
-    #     table_name="artigos",
-    #     data_model_list=models_artigos,
-    #     batch_size=5000,  # Aumentado para reduzir overhead
-    #     max_workers=3      # Reduzido para evitar contention
-    # )
-
-    # columns = """
-    #     id SERIAL PRIMARY KEY,
-    #     paper_id VARCHAR(100) NOT NULL,
-    #     title TEXT,
-    #     section TEXT,
-    #     content TEXT,
-    #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    # """
-    # connector.create_table("articles", columns)
-
-    # connector = DatabaseConnector()
-
-    # columns = """
-    #     id SERIAL PRIMARY KEY,
-    #     paper_id VARCHAR(100) NOT NULL,
-    #     section TEXT,
-    #     ref_id VARCHAR(50),
-    #     cite_text TEXT,
-    #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    # """
-
-    # connector.create_table("articles_citation", columns)
-
-
-   
-    # Access the results programmatically
-    # print("\n🔑 Programmatic Access Example:")
-    # if results:
-    #     first_file = results[0]
-    #     print(f"   First file: {first_file['file_name']}")
-    #     print(f"   Keys available: {first_file['keys']}")
-    #     print(f"   You can access data: first_file['data']['paper_id']")
-    
-    # Optional: uncomment to see more details
-    # analyzer.return_file_category()
-    # analyzer.return_files_size()
-    # analyzer.average_file_size()

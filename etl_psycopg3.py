@@ -110,8 +110,6 @@ class DatabaseConnector:
         placeholders = ', '.join(['%s'] * len(data_dicts[0]))
         values = [tuple(d.values()) for d in data_dicts]
         print(f"\n🧾 Preview de inserção na tabela '{table_name}':")
-        # print(f"Colunas: {columns}")
-        # print('values', values)
         query = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
         start_time = time.perf_counter()
 
@@ -164,74 +162,15 @@ class DatabaseConnector:
 
 
 
-    # --------------------
-    def insert_batch_with_pool(self, table_name: str, data_batch: list[BaseModel]):
-        """Insere um lote de registros usando ConnectionPool e executemany otimizado."""
-        if not data_batch:
-            return 0
-
-        # Prepara dados e substitui campo text -> content
-        data_dicts = []
-        for m in data_batch:
-            d = m.dict()
-            if "text" in d:
-                d["content"] = d.pop("text")
-            data_dicts.append(d)
-
-        columns = list(data_dicts[0].keys())
-        values = [tuple(d[c] for c in columns) for d in data_dicts]
-        cols_str = ', '.join(columns)
-        placeholders = ', '.join(['%s'] * len(columns))
-
-        # Usa executemany otimizado do psycopg3 (pipeline mode automatico)
-        query = f"INSERT INTO {table_name} ({cols_str}) VALUES ({placeholders})"
-
-        with self.pool.connection() as conn:
+    def select_into_table(self, table_name: str):
+        registers = []
+        with psycopg.connect(self.conn_str) as conn:
             with conn.cursor() as cur:
-                # psycopg3 executemany é automaticamente otimizado com pipeline mode
-                cur.executemany(query, values)
-            conn.commit()
+                cur.execute(
+                    f"SELECT * FROM {table_name}"
+                )
 
-        return len(values)
 
-    # -------------------------------------------------------------------------
-    def batch_process_with_pool(self, table_name, data_model_list, batch_size=20000, max_workers=6):
-        """Processa inserções em paralelo com ConnectionPool e executemany otimizado."""
-        total_rows = len(data_model_list)
-        batches = [
-            data_model_list[i:i + batch_size]
-            for i in range(0, total_rows, batch_size)
-        ]
-
-        print(f"🚀 Inserção paralela otimizada iniciada: {len(batches)} lotes | {max_workers} threads | pool ativo...")
-
-        start_time = time.perf_counter()
-        total_inserted = 0
-
-        # Usa ThreadPoolExecutor para inserir em paralelo
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {
-                executor.submit(self.insert_batch_with_pool, table_name, batch): i
-                for i, batch in enumerate(batches)
-            }
-
-            for i, future in enumerate(as_completed(futures)):
-                inserted = future.result()
-                total_inserted += inserted
-                print(f"🧩 Lote {i + 1}/{len(batches)} concluído ({inserted} registros).")
-
-        end_time = time.perf_counter()
-        duration = end_time - start_time
-        rate = total_inserted / duration if duration > 0 else 0
-
-        print(f"\n✅ Inserção finalizada com sucesso!")
-        print(f"📊 Total inserido: {total_inserted} registros")
-        print(f"⏱️ Tempo total: {duration:.2f} s")
-        print(f"⚡ Taxa média: {rate:.0f} registros/s\n")
-
-        # Fecha o pool após uso (se foi criado)
-        if self._pool is not None:
-            self._pool.close()
 
     # -------------------------------------------------------------------------
     def insert_optimized_single_transaction(self, table_name: str, data_model_list: list[BaseModel]):
@@ -246,7 +185,6 @@ class DatabaseConnector:
         print(f"🚀 Inserção otimizada (transação única com COPY) iniciada...")
         start_time = time.perf_counter()
 
-        # Prepara dados
         data_dicts = []
         for m in data_model_list:
             d = m.dict()
@@ -259,11 +197,22 @@ class DatabaseConnector:
         cols_str = ', '.join(columns)
 
         # Uma única transação com COPY (mais rápido que INSERT)
+        existing_ids = set()
         with psycopg.connect(self.conn_str) as conn:
             with conn.cursor() as cur:
-                # Usa COPY para inserção ultra-rápida
+                cur.execute(f"SELECT paper_id FROM {table_name}")
+                existing_ids = {row[0] for row in cur.fetchall()}
+                filtered_values = []
+                for v in values:
+                    # paper_id is assumed to be the first column
+                    if v[0] not in existing_ids:
+                        filtered_values.append(v)
+                if not filtered_values:
+                    print("⚠️ Nenhum novo registro para inserir (todos já existem).")
+                    return 0
+
                 with cur.copy(f"COPY {table_name} ({cols_str}) FROM STDIN") as copy:
-                    for row in values:
+                    for row in filtered_values:
                         copy.write_row(row)
             conn.commit()
 
