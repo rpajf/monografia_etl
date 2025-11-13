@@ -413,3 +413,4 @@ def log_batch_metrics(batch_num, records, duration, memory_mb):
 **Status:** ✅ Caso de estudo validado como excelente  
 **Próximo passo:** Completar pipeline e executar experimentos sistemáticos
 
+

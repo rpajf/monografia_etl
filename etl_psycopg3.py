@@ -2,19 +2,16 @@
 ETL with psycopg3 (Modern version)
 Demonstrates performance optimizations for your thesis
 """
+
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import psycopg
-from psycopg import sql
-import pandas as pd
 import time
-from datetime import datetime
-from schemas import Artigo
-
 from pydantic import BaseModel
 
 # Try to import ConnectionPool (optional)
 try:
     from psycopg_pool import ConnectionPool
+
     HAS_POOL = True
 except ImportError:
     HAS_POOL = False
@@ -28,16 +25,19 @@ class DatabaseConnector:
     def __init__(self):
         self.conn_str = CONN_STRING
         self._pool = None
-    
+
     @property
     def pool(self):
         """Lazy-load connection pool only when needed"""
         if self._pool is None:
             if not HAS_POOL:
-                raise ImportError("ConnectionPool not available. Install: pip install psycopg[pool]")
-            self._pool = ConnectionPool(conninfo=self.conn_str, min_size=1, max_size=5, open=True)
+                raise ImportError(
+                    "ConnectionPool not available. Install: pip install psycopg[pool]"
+                )
+            self._pool = ConnectionPool(
+                conninfo=self.conn_str, min_size=1, max_size=5, open=True
+            )
         return self._pool
-
 
     def create_table(self, table_name, columns):
         """
@@ -60,8 +60,8 @@ class DatabaseConnector:
         Insert a row into a given table.
         - `data` should be a dictionary: {"column1": value1, "column2": value2, ...}
         """
-        columns = ', '.join(data.keys())
-        placeholders = ', '.join(['%s'] * len(data))
+        columns = ", ".join(data.keys())
+        placeholders = ", ".join(["%s"] * len(data))
         values = list(data.values())
 
         query = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
@@ -82,8 +82,8 @@ class DatabaseConnector:
                 d["content"] = d.pop("text")
             data_dicts.append(d)
 
-        columns = ', '.join(data_dicts[0].keys())
-        placeholders = ', '.join(['%s'] * len(data_dicts[0]))
+        columns = ", ".join(data_dicts[0].keys())
+        placeholders = ", ".join(["%s"] * len(data_dicts[0]))
         values = [tuple(d.values()) for d in data_dicts]
         query = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
 
@@ -95,16 +95,19 @@ class DatabaseConnector:
         # print(f"✅ Inserido batch com {len(values)} registros.")
         return len(values)
 
-    
-    def batch_process_rows(self, table_name, data_model_list, batch_size=1000, max_workers=5):
+    def batch_process_rows(
+        self, table_name, data_model_list, batch_size=1000, max_workers=5
+    ):
         """Divide os dados em lotes e insere com 5 threads paralelas."""
         total_rows = len(data_model_list)
         batches = [
-            data_model_list[i:i + batch_size]
+            data_model_list[i : i + batch_size]
             for i in range(0, total_rows, batch_size)
         ]
 
-        print(f"🚀 Iniciando processamento em {len(batches)} lotes, usando {max_workers} threads...")
+        print(
+            f"🚀 Iniciando processamento em {len(batches)} lotes, usando {max_workers} threads..."
+        )
 
         start_time = time.perf_counter()
         total_inserted = 0
@@ -118,18 +121,18 @@ class DatabaseConnector:
             for i, future in enumerate(as_completed(futures)):
                 inserted = future.result()
                 total_inserted += inserted
-                print(f"🧩 Lote {i + 1}/{len(batches)} concluído ({inserted} registros).")
+                print(
+                    f"🧩 Lote {i + 1}/{len(batches)} concluído ({inserted} registros)."
+                )
 
         end_time = time.perf_counter()
         duration = end_time - start_time
         rate = total_inserted / duration if duration > 0 else 0
 
-        print(f"\n✅ Inserção paralela concluída!")
+        print("\n✅ Inserção paralela concluída!")
         print(f"📊 Total inserido: {total_inserted} registros")
         print(f"⏱️ Tempo total: {duration:.2f} segundos")
         print(f"⚡ Taxa média: {rate:.0f} registros/segundo\n")
-
-
 
     def truncate_table(self, table_name: str):
         """Remove todos os registros da tabela rapidamente."""
@@ -139,10 +142,10 @@ class DatabaseConnector:
             conn.commit()
         print(f"🧹 Tabela '{table_name}' truncada com sucesso!")
 
-
-
     # -------------------------------------------------------------------------
-    def insert_optimized_single_transaction(self, table_name: str, data_model_list: list[BaseModel]):
+    def insert_optimized_single_transaction2(
+        self, table_name: str, data_model_list: list[BaseModel]
+    ):
         """
         OTIMIZADO: Inserção rápida usando COPY em uma única transação.
         Ideal para datasets pequenos/médios (< 100k registros).
@@ -151,7 +154,7 @@ class DatabaseConnector:
         if not data_model_list:
             return 0
 
-        print(f"🚀 Inserção otimizada (transação única com COPY) iniciada...")
+        print("🚀 Inserção otimizada (transação única com COPY) iniciada...")
         start_time = time.perf_counter()
 
         data_dicts = []
@@ -163,7 +166,7 @@ class DatabaseConnector:
 
         columns = list(data_dicts[0].keys())
         values = [tuple(d[c] for c in columns) for d in data_dicts]
-        cols_str = ', '.join(columns)
+        cols_str = ", ".join(columns)
 
         # Uma única transação com COPY (mais rápido que INSERT)
         existing_ids = set()
@@ -189,9 +192,59 @@ class DatabaseConnector:
         duration = end_time - start_time
         rate = len(data_model_list) / duration if duration > 0 else 0
 
-        print(f"\n✅ Inserção finalizada!")
+        print("\n✅ Inserção finalizada!")
         print(f"📊 Total inserido: {len(data_model_list)} registros")
         print(f"⏱️ Tempo total: {duration:.2f} s")
         print(f"⚡ Taxa média: {rate:.0f} registros/s\n")
+
+        return len(data_model_list)
+
+    def insert_optimized_single_transaction(
+        self, table_name: str, data_model_list: list[BaseModel]
+    ):
+        if not data_model_list:
+            return 0
+
+        print("🚀 Inserção otimizada (COPY em transação única)")
+        start_time = time.perf_counter()
+
+        data_dicts = [m.dict() for m in data_model_list]
+        columns = list(data_dicts[0].keys())
+        values = [tuple(d[c] for c in columns) for d in data_dicts]
+        cols_str = ", ".join(columns)
+
+        with psycopg.connect(self.conn_str) as conn:
+            with conn.cursor() as cur:
+                try:
+                    # buf = io.StringIO()
+                    # writer = csv.writer(
+                    #     buf,
+                    #     delimiter="\t",
+                    #     lineterminator="\n",
+                    #     quoting=csv.QUOTE_MINIMAL,
+                    #     escapechar="\\",
+                    # )
+                    # writer.writerows(values)
+                    # buf.seek(0)
+
+                    # with cur.copy(
+                    #     f"COPY {table_name} ({cols_str}) "
+                    #     "FROM STDIN WITH (FORMAT CSV, DELIMITER E'\\t')"
+                    # ) as copy:
+                    #     copy.write(buf.getvalue())
+
+                    # conn.commit()
+                    with cur.copy(f"COPY {table_name} ({cols_str}) FROM STDIN") as copy:
+                        for row in values:
+                            copy.write_row(row)
+                    conn.commit()
+                except psycopg.errors.UniqueViolation:
+                    print(
+                        "⚠️ Alguns registros duplicados foram ignorados (já existentes)."
+                    )
+                    conn.rollback()
+
+        duration = time.perf_counter() - start_time
+        print(f"✅ Inseridos {len(data_model_list)} registros em {duration:.2f}s")
 
         return len(data_model_list)

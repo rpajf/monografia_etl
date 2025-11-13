@@ -293,7 +293,7 @@ class ZipFileAnalyzer:
         """
         with zipfile.ZipFile(self.zip_path, "r") as z:
             json_files = [f for f in z.namelist() if f.endswith(".json")]
-            print("📦 Total de arquivos JSON encontrados:", len(json_files))
+
 
             records = []
             body_records = []
@@ -355,7 +355,6 @@ class ZipFileAnalyzer:
         connector = DatabaseConnector()
         if not num_of_files:
             return
-        print("🚀 INICIANDO PROCESSAMENTO EM BATCHES - ARTIGOS STAGING")
         print(f"{'='*70}")
         print(f"📦 Batch size: {batch_size:,} arquivos por vez")
 
@@ -387,7 +386,6 @@ class ZipFileAnalyzer:
         total_time = end_total - start_total
         print(f"📊 Total de batches processados: {batch_count}")
         print(f"⏱️  Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
-        print(f"⚡ Taxa média geral: {avg_rate:.0f} registros/segundo")
         
 
     def join_tables(self, tables):
