@@ -346,7 +346,7 @@ class ZipFileAnalyzer:
         offset (int): Starting index for reading from the ZIP file.
         table_name (str): Target table in the database.
         """
-        
+
         print("🚀 INICIANDO PROCESSAMENTO EM BATCHES - ARTIGOS STAGING")
         batch_count = 0
         total_processado = 0
@@ -388,6 +388,7 @@ class ZipFileAnalyzer:
         print(f"📊 Total de batches processados: {batch_count}")
         print(f"⏱️  Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
         print(f"⚡ Taxa média geral: {avg_rate:.0f} registros/segundo")
+        
 
     def join_tables(self, tables):
         pass

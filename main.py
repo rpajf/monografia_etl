@@ -1,5 +1,6 @@
 from etl_psycopg3 import DatabaseConnector
 from fetch_db import ZipFileAnalyzer
+from benchmark import BenchmarkExecutor
 import zipfile
 
 zip_path = "/Users/raphaelportela/datasetcovid.zip"
@@ -17,6 +18,12 @@ if __name__ == "__main__":
     analyzer = ZipFileAnalyzer(zip_path)
     total_files = get_total_files()
     print("total", total_files)
+    benchmark_insert = BenchmarkExecutor(
+        files_to_process=total_files,
+        offset=0,
+        pipeline=analyzer.execute_batch_insert
+    )
+    benchmark_insert.processamento()
     # criar tabela artigos
     # connector.create_table(table_name='artigos_staging', columns='paper_id VARCHAR(100) PRIMARY KEY, file_name TEXT, title TEXT, body_text TEXT')
     # connector.create_table(
@@ -59,7 +66,7 @@ if __name__ == "__main__":
     #     num_of_files=total_files,
     #     offset=offset,
     # )
-    
+
     # connector.create_table(table_name='artigos_stg', columns='paper_id VARCHAR(100) PRIMARY KEY, file_name TEXT, title TEXT, body_text TEXT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP')
     # analyzer.get_metadata_info()
     # body_text_df, cite_text_df = analyzer.get_files_data_as_dataframe(

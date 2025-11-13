@@ -95,38 +95,7 @@ class DatabaseConnector:
         # print(f"✅ Inserido batch com {len(values)} registros.")
         return len(values)
 
-    def insert_into_table_typed(self, table_name, data_model: BaseModel):
-        """Insere dados validados via Pydantic."""
-        if not isinstance(data_model, list):
-            data_model = [data_model]
-        data_dicts = []
-        for m in data_model:
-            d = m.dict()
-            if "text" in d:
-                d["content"] = d.pop("text")
-            data_dicts.append(d)
-
-        columns = ', '.join(data_dicts[0].keys())
-        placeholders = ', '.join(['%s'] * len(data_dicts[0]))
-        values = [tuple(d.values()) for d in data_dicts]
-        print(f"\n🧾 Preview de inserção na tabela '{table_name}':")
-        query = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
-        start_time = time.perf_counter()
-
-        with psycopg.connect(self.conn_str) as conn:
-            with conn.cursor() as cur:
-                cur.executemany(query, values)
-            conn.commit()
-        end_time = time.perf_counter()
-        duration = end_time - start_time
-        rate = len(values) / duration if duration > 0 else 0
-        print(f"\n✅ Inseridos {len(values)} registros em '{table_name}' com sucesso.")
-        print(f"⏱️  Tempo total: {duration:.2f} segundos")
-        print(f"📈 Taxa média: {rate:.0f} registros/segundo\n")
-
-
-        print(f"✅ Inserted record into '{table_name}'successfully.")    
-
+    
     def batch_process_rows(self, table_name, data_model_list, batch_size=1000, max_workers=5):
         """Divide os dados em lotes e insere com 5 threads paralelas."""
         total_rows = len(data_model_list)
@@ -162,13 +131,13 @@ class DatabaseConnector:
 
 
 
-    def select_into_table(self, table_name: str):
-        registers = []
+    def truncate_table(self, table_name: str):
+        """Remove todos os registros da tabela rapidamente."""
         with psycopg.connect(self.conn_str) as conn:
             with conn.cursor() as cur:
-                cur.execute(
-                    f"SELECT * FROM {table_name}"
-                )
+                cur.execute(f"TRUNCATE TABLE {table_name} RESTART IDENTITY;")
+            conn.commit()
+        print(f"🧹 Tabela '{table_name}' truncada com sucesso!")
 
 
 
