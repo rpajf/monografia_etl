@@ -354,7 +354,7 @@ class ZipFileAnalyzer:
         start_total = time.perf_counter()
         connector = DatabaseConnector()
         if not num_of_files:
-            return
+            return 0
         print(f"{'='*70}")
         print(f"📦 Batch size: {batch_size:,} arquivos por vez")
 
@@ -386,7 +386,8 @@ class ZipFileAnalyzer:
         total_time = end_total - start_total
         print(f"📊 Total de batches processados: {batch_count}")
         print(f"⏱️  Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
-        
+
+        return total_processado
 
     def join_tables(self, tables):
         pass
