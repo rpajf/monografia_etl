@@ -294,7 +294,6 @@ class ZipFileAnalyzer:
         with zipfile.ZipFile(self.zip_path, "r") as z:
             json_files = [f for f in z.namelist() if f.endswith(".json")]
 
-
             records = []
             body_records = []
             start_index = offset
@@ -337,6 +336,76 @@ class ZipFileAnalyzer:
             # body_text_df = pd.DataFrame(body_records)
 
             return articles_df
+
+    async def execute_batch_parallel(
+        self, batch_size, num_of_files, offset=0, max_tasks: int = 4
+    ):
+        connector = DatabaseConnector()
+        batch_count = 0
+        total_processado = 0
+        batch_metrics: list[dict] = []
+        start_total = time.perf_counter()
+        remaining = num_of_files
+        current_offset = offset
+
+        while remaining > 0:
+            batch_count += 1
+            start_batch = time.perf_counter()
+            slice_size = min(batch_size, remaining)
+
+            parse_start = time.perf_counter()
+            articles_df = self.get_files_data_as_dataframe(
+                number_of_files=slice_size, offset=current_offset
+            )
+            if articles_df.empty:
+                print("nenhum arquivo encontrado")
+                break
+
+            models_artigos = [
+                ArtigoStaging(**row) for row in articles_df.to_dict(orient="records")
+            ]
+            parse_time = time.perf_counter() - parse_start
+
+            insert_result = await connector.insert_async_parallel(
+                table_name="artigos_stg",
+                data_model_list=models_artigos,
+                chunk_size=min(slice_size, 5000),
+                max_tasks=max_tasks,
+            )
+
+            batch_time = time.perf_counter() - start_batch
+            remaining -= len(models_artigos)
+            current_offset += len(models_artigos)
+            inserted = insert_result.get("inserted", 0)
+            insert_time = insert_result.get("duration", 0.0)
+            total_processado += inserted
+
+            batch_metrics.append(
+                {
+                    "batch_index": batch_count,
+                    "batch_size": len(models_artigos),
+                    "parse_time": parse_time,
+                    "insert_time": insert_time,
+                    "total_time": batch_time,
+                    "inserted": inserted,
+                }
+            )
+
+            print(
+                f"⏱Tempo do batch: {batch_time:.2f}s "
+                f"(parse={parse_time:.2f}s, insert={insert_time:.2f}s, "
+                f"{inserted:,} registros)"
+            )
+
+        total_time = time.perf_counter() - start_total
+        print(f"Total de batches processados: {batch_count}")
+        print(f"Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
+        return {
+            "total_inserted": total_processado,
+            "batch_metrics": batch_metrics,
+            "total_time": total_time,
+        }
+            
 
     def execute_batch_insert(self, batch_size, num_of_files, offset=0):
         """
