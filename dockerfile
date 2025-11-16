@@ -15,10 +15,17 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DATASET_PATH=/data/datasetcovid.zip \
+    HOST_DATASET=/Users/raphaelportela/datasetcovid.zip
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+COPY docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Limita o processo Python a ~4 GB de RAM
-CMD ["bash", "-c", "ulimit -v 4194304 && python main.py"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["bash", "-c", "ulimit -v 10485760 && python main_etl.py"]

@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 set -euo pipefail
 
 DATASET_SRC="${DATASET_PATH:-/data/datasetcovid.zip}"

@@ -19,48 +19,30 @@ if __name__ == "__main__":
     connector = DatabaseConnector()
     analyzer = ZipFileAnalyzer(zip_path)
     total_files = get_total_files()
-    print("total", total_files)
-    # benchmark_insert = BenchmarkExecutor(
-    #     files_to_process=total_files,
-    #     offset=0,
-    #     pipeline=analyzer.execute_batch_insert
-    # )
-    # benchmark_insert.processamento()
-    benchmark_insert = BenchmarkExecutor(
+    print(f"📊 Total de arquivos JSON encontrados: {total_files:,}")
+    
+    # Synchronous benchmark (COPY method - single transaction)
+    print("\n" + "="*70)
+    print("🔵 BENCHMARK SÍNCRONO - Método COPY (Transação Única)")
+    print("="*70)
+    benchmark_sync = BenchmarkExecutor(
         files_to_process=total_files,
         offset=0,
-        pipeline=analyzer.execute_batch_parallel,
+        pipeline=analyzer.execute_batch_insert
     )
-    # criar tabela artigos
-    # connector.create_table(table_name='artigos_staging', columns='paper_id VARCHAR(100) PRIMARY KEY, file_name TEXT, title TEXT, body_text TEXT')
-    # connector.create_table(
-    #     table_name='metadata_staging',
-    #     columns="""
-    #         cord_uid VARCHAR(100) PRIMARY KEY,
-    #         sha VARCHAR(100),
-    #         source_x TEXT,
-    #         title TEXT,
-    #         doi VARCHAR(100),
-    #         pmcid VARCHAR(50),
-    #         pubmed_id VARCHAR(50),
-    #         license TEXT,
-    #         abstract TEXT,
-    #         publish_time VARCHAR(50),
-    #         authors TEXT,
-    #         journal TEXT,
-    #         mag_id VARCHAR(50),
-    #         who_covidence_id VARCHAR(50),
-    #         arxiv_id VARCHAR(50),
-    #         pdf_json_files TEXT,
-    #         pmc_json_files TEXT,
-    #         url TEXT,
-    #         s2_id VARCHAR(50),
-    #         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    #     """
+    benchmark_sync.processamento()
+    
+    # Uncomment below to run async benchmark for comparison
+    # print("\n" + "="*70)
+    # print("🟢 BENCHMARK ASSÍNCRONO - Método Paralelo")
+    # print("="*70)
+    # benchmark_async = BenchmarkExecutor(
+    #     files_to_process=total_files,
+    #     offset=0,
+    #     pipeline=analyzer.execute_batch_parallel,
+    #     max_tasks=4
     # )
-    # body_text_df, articles_df = analyzer.get_files_data_as_dataframe(number_of_files=1)
-    # print(body_text_df)
-    asyncio.run(benchmark_insert.processamento_async())
+    # asyncio.run(benchmark_async.processamento_async())
     # test = [ArtigoStaging(**row) for row in body_text_df.to_dict(orient="records")]
 
     # print('test', articles_df.to_dict(orient="records"))

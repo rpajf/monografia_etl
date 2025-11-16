@@ -371,6 +371,7 @@ class ZipFileAnalyzer:
                 data_model_list=models_artigos,
                 chunk_size=min(slice_size, 5000),
                 max_tasks=max_tasks,
+                use_copy=False,  # Temporarily disable COPY until async issue is resolved
             )
 
             batch_time = time.perf_counter() - start_batch
@@ -409,54 +410,85 @@ class ZipFileAnalyzer:
 
     def execute_batch_insert(self, batch_size, num_of_files, offset=0):
         """
+        Synchronous batch processing using COPY method (single transaction).
+        Returns metrics compatible with benchmark framework.
+        
         Args:
         batch_size (int): Number of files to process per batch.
         num_of_files (int): Total number of files to process.
         offset (int): Starting index for reading from the ZIP file.
-        table_name (str): Target table in the database.
+        
+        Returns:
+        dict: Contains total_inserted, batch_metrics, and total_time
         """
-
-        print("🚀 INICIANDO PROCESSAMENTO EM BATCHES - ARTIGOS STAGING")
+        connector = DatabaseConnector()
         batch_count = 0
         total_processado = 0
-        jsons_processados = 0
+        batch_metrics: list[dict] = []
         start_total = time.perf_counter()
-        connector = DatabaseConnector()
-        if not num_of_files:
-            return 0
-        print(f"{'='*70}")
-        print(f"📦 Batch size: {batch_size:,} arquivos por vez")
+        remaining = num_of_files
+        current_offset = offset
 
-        while num_of_files > 0:
-            print(f"\n{'─'*70}")
-            print(f"BATCH {batch_count} - Offset: {offset:,}")
-            print(f"{'─'*70}")
-            if num_of_files == 0:
-                print("nenhum arquivo encontrado")
-                break
+        if not num_of_files:
+            return {"total_inserted": 0, "batch_metrics": [], "total_time": 0.0}
+
+        while remaining > 0:
             batch_count += 1
             start_batch = time.perf_counter()
+            slice_size = min(batch_size, remaining)
+
+            # Parse phase
+            parse_start = time.perf_counter()
             articles_df = self.get_files_data_as_dataframe(
-                number_of_files=batch_size, offset=offset
+                number_of_files=slice_size, offset=current_offset
             )
+            if articles_df.empty:
+                print("nenhum arquivo encontrado")
+                break
+
             models_artigos = [
                 ArtigoStaging(**row) for row in articles_df.to_dict(orient="records")
             ]
+            parse_time = time.perf_counter() - parse_start
 
-            connector.insert_optimized_single_transaction(
+            # Insert phase
+            insert_start = time.perf_counter()
+            inserted = connector.insert_optimized_single_transaction(
                 table_name="artigos_stg", data_model_list=models_artigos
             )
-            batch_time = time.perf_counter() - start_batch
-            num_of_files -= batch_size
-            offset += batch_size
-            total_processado += len(models_artigos)
-            print(f"⏱️  Tempo do batch: {batch_time:.2f}s")
-        end_total = time.perf_counter()
-        total_time = end_total - start_total
-        print(f"📊 Total de batches processados: {batch_count}")
-        print(f"⏱️  Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
+            insert_time = time.perf_counter() - insert_start
 
-        return total_processado
+            batch_time = time.perf_counter() - start_batch
+            remaining -= len(models_artigos)
+            current_offset += len(models_artigos)
+            total_processado += inserted
+
+            batch_metrics.append(
+                {
+                    "batch_index": batch_count,
+                    "batch_size": len(models_artigos),
+                    "parse_time": parse_time,
+                    "insert_time": insert_time,
+                    "total_time": batch_time,
+                    "inserted": inserted,
+                }
+            )
+
+            print(
+                f"⏱Tempo do batch: {batch_time:.2f}s "
+                f"(parse={parse_time:.2f}s, insert={insert_time:.2f}s, "
+                f"{inserted:,} registros)"
+            )
+
+        total_time = time.perf_counter() - start_total
+        print(f"Total de batches processados: {batch_count}")
+        print(f"Tempo total: {total_time:.2f}s ({total_time/60:.2f} minutos)")
+        
+        return {
+            "total_inserted": total_processado,
+            "batch_metrics": batch_metrics,
+            "total_time": total_time,
+        }
 
     def join_tables(self, tables):
         pass

@@ -21,3 +21,6 @@ tqdm==4.66.1
 matplotlib==3.8.2
 seaborn==0.13.0
 more-itertools
+
+# System monitoring
+psutil==5.9.8

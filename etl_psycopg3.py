@@ -228,7 +228,6 @@ class DatabaseConnector:
                 aconn.rollback()
         duration = time.perf_counter() - start_time
         print(f"✅ Inseridos {len(data_model_list)} registros em {duration:.2f}s")
-        await asyncio.gather(*[cur.execute(query, row) for row in data_dicts])
 
     async def insert_chunk(
         self,
@@ -236,100 +235,187 @@ class DatabaseConnector:
         data_chunk: list,
         chunk_index: int | None = None,
         total_chunks: int | None = None,
+        use_copy: bool = True,
     ):
-        """Insere um chunk de registros em uma tabela."""
+        """
+        Insere um chunk de registros em uma tabela.
+        
+        Args:
+            table_name: Nome da tabela
+            data_chunk: Lista de dicts (já convertidos, não BaseModel)
+            chunk_index: Índice do chunk para logging
+            total_chunks: Total de chunks para logging
+            use_copy: Se True, usa COPY (mais rápido). Se False, usa executemany.
+        """
         if not data_chunk:
             return 0
 
-        first_row = data_chunk[0]
-        if isinstance(first_row, BaseModel):
-            data_dicts = []
-            for m in data_chunk:
-                d = m.dict()
-                if "text" in d:
-                    d["content"] = d.pop("text")
-                data_dicts.append(d)
-        else:
-            data_dicts = data_chunk
-
+        # Data should already be dicts at this point
+        data_dicts = data_chunk
         columns = list(data_dicts[0].keys())
-        values = [tuple(d[c] for c in columns) for d in data_dicts]
         cols_str = ", ".join(columns)
-        placeholders = ", ".join(["%s"] * len(columns))
-        query = (
-            f"INSERT INTO {table_name} ({cols_str}) VALUES ({placeholders}) "
-            "ON CONFLICT DO NOTHING"
-        )
 
         chunk_label = None
         if chunk_index is not None and total_chunks is not None:
             chunk_label = f"{chunk_index + 1}/{total_chunks}"
 
-        async with await psycopg.AsyncConnection.connect(self.conn_str) as aconn:
+        # Try to use connection pool if available, otherwise create new connection
+        if HAS_POOL:
             try:
-                async with aconn.cursor() as cur:
-                    await cur.executemany(query, values)
-                await aconn.commit()
-            except psycopg.errors.UniqueViolation:
-                if chunk_label:
-                    print(f"⚠️ Chunk {chunk_label} ignorado por duplicidades.")
+                async with self.pool.connection() as aconn:
+                    return await self._insert_chunk_with_conn(
+                        aconn, table_name, data_dicts, columns, cols_str, 
+                        chunk_label, use_copy
+                    )
+            except Exception as e:
+                # Fallback to direct connection if pool fails
+                pass
+        
+        # Fallback: direct connection
+        async with await psycopg.AsyncConnection.connect(self.conn_str) as aconn:
+            return await self._insert_chunk_with_conn(
+                aconn, table_name, data_dicts, columns, cols_str, 
+                chunk_label, use_copy
+            )
+    
+    async def _insert_chunk_with_conn(
+        self, aconn, table_name, data_dicts, columns, cols_str, chunk_label, use_copy
+    ):
+        """Helper method to insert chunk with given connection."""
+        try:
+            async with aconn.cursor() as cur:
+                if use_copy:
+                    # Use COPY for better performance (faster than executemany)
+                    # In psycopg3 async, cur.copy() returns an async context manager
+                    values = [tuple(d[c] for c in columns) for d in data_dicts]
+                    async with cur.copy(
+                        f"COPY {table_name} ({cols_str}) FROM STDIN"
+                    ) as copy:
+                        for row in values:
+                            await copy.write_row(row)
                 else:
-                    print("⚠️ Chunk ignorado por duplicidades.")
-                await aconn.rollback()
-                return 0
-        return len(values)
+                    values = [tuple(d[c] for c in columns) for d in data_dicts]
+                    placeholders = ", ".join(["%s"] * len(columns))
+                    query = (
+                        f"INSERT INTO {table_name} ({cols_str}) VALUES ({placeholders}) "
+                        "ON CONFLICT DO NOTHING"
+                    )
+                    await cur.executemany(query, values)
+            await aconn.commit()
+            return len(data_dicts)
+        except psycopg.errors.UniqueViolation:
+            if chunk_label:
+                print(f" Chunk {chunk_label} ignorado por duplicidades.")
+            else:
+                print(" Chunk ignorado por duplicidades.")
+            await aconn.rollback()
+            return 0
+        except Exception as e:
+            if chunk_label:
+                print(f"❌ Erro no chunk {chunk_label}: {e}")
+            await aconn.rollback()
+            return 0
 
     async def insert_async_parallel(
         self,
         table_name: str,
         data_model_list: list,
-        chunk_size: int = 10000,
+        chunk_size: int = 5000,
         max_tasks: int = 4,
+        use_copy: bool = True,
     ):
-        """Divide o dataset em chunks e insere paralelamente."""
-
+        """
+        Divide o dataset em chunks e insere paralelamente.
+        
+        Optimizations:
+        - Uses connection pooling if available
+        - Converts BaseModel to dict once (not per chunk)
+        - Uses COPY instead of executemany for better performance
+        - Adaptive chunking for better load distribution
+        
+        Args:
+            table_name: Nome da tabela
+            data_model_list: Lista de BaseModel ou dicts
+            chunk_size: Tamanho de cada chunk (otimizado automaticamente se muito pequeno)
+            max_tasks: Número máximo de tasks paralelas
+            use_copy: Se True, usa COPY (mais rápido). Se False, usa executemany.
+        """
         start = time.perf_counter()
 
-        # Converte BaseModel → dict
+        if not data_model_list:
+            return {"inserted": 0, "duration": 0, "chunk_size": 0, "total_chunks": 0, "concurrency": 0}
+
+        # Converte BaseModel → dict uma única vez (otimização de memória)
+        # Fazemos isso antes de chunking para evitar conversão duplicada
         rows = []
         for m in data_model_list:
-            d = m.dict()
-            if "text" in d:
-                d["content"] = d.pop("text")
-            rows.append(d)
+            if isinstance(m, BaseModel):
+                d = m.dict()
+                if "text" in d:
+                    d["content"] = d.pop("text")
+                rows.append(d)
+            else:
+                # Já é dict, apenas normaliza se necessário
+                if "text" in m:
+                    m = m.copy()
+                    m["content"] = m.pop("text")
+                rows.append(m)
 
         if not rows:
-            return 0
+            return {"inserted": 0, "duration": 0, "chunk_size": 0, "total_chunks": 0, "concurrency": 0}
+
+        # Otimização: Se chunk_size muito pequeno para o dataset, ajusta
+        # Evita criar muitos chunks pequenos (overhead)
+        total_records = len(rows)
+        if chunk_size < 1000 and total_records > 10000:
+            optimal_chunks = min(20, max(4, total_records // 5000))
+            chunk_size = max(1000, total_records // optimal_chunks)
 
         # Divide em chunks
         chunks = list(chunked(rows, chunk_size))
         total_chunks = len(chunks)
 
-        # Cria um número limitado de tasks paralelas
+        # Cria um número limitado de tasks paralelas com semáforo
         sem = asyncio.Semaphore(max_tasks)
 
         async def worker(idx, chunk):
+            """Worker que processa um chunk."""
             async with sem:
                 try:
                     inserted = await self.insert_chunk(
-                        table_name, chunk, idx, total_chunks
+                        table_name=table_name,
+                        data_chunk=chunk,  # Já são dicts, não BaseModel
+                        chunk_index=idx,
+                        total_chunks=total_chunks,
+                        use_copy=use_copy,
                     )
                     return inserted
                 except Exception as exc:
                     print(f"❌ Falha no chunk {idx + 1}/{total_chunks}: {exc}")
                     return 0
 
+        # Cria todas as tasks
         tasks = [
-            asyncio.create_task(worker(idx, chunk)) for idx, chunk in enumerate(chunks)
+            asyncio.create_task(worker(idx, chunk)) 
+            for idx, chunk in enumerate(chunks)
         ]
 
-        results = await asyncio.gather(*tasks)
+        # Executa todas as tasks em paralelo
+        results = await asyncio.gather(*tasks, return_exceptions=False)
 
         total = time.perf_counter() - start
         total_inserted = sum(results)
+        
+        # Calcula estatísticas
+        successful_chunks = sum(1 for r in results if r > 0)
+        avg_chunk_time = total / total_chunks if total_chunks > 0 else 0
+        
         print(
             f"Inserção paralela concluída em {total:.2f}s "
-            f"({total_inserted} registros válidos, chunk={chunk_size}, tasks={max_tasks})"
+            f"({total_inserted:,} registros válidos, "
+            f"{successful_chunks}/{total_chunks} chunks, "
+            f"chunk={chunk_size}, tasks={max_tasks}, "
+            f"avg_chunk={avg_chunk_time:.3f}s)"
         )
 
         return {
@@ -337,7 +423,9 @@ class DatabaseConnector:
             "duration": total,
             "chunk_size": chunk_size,
             "total_chunks": total_chunks,
+            "successful_chunks": successful_chunks,
             "concurrency": max_tasks,
+            "throughput": total_inserted / total if total > 0 else 0,
         }
 
     def insert_optimized_single_transaction(
