@@ -4,9 +4,11 @@ Demonstrates performance optimizations for your thesis
 """
 
 import asyncio
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import psycopg
+import os
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import psycopg
 from pydantic import BaseModel
 from more_itertools import chunked
 
@@ -19,8 +21,21 @@ except ImportError:
     HAS_POOL = False
     print("⚠️  psycopg_pool not available. Install with: pip install psycopg[pool]")
 
-# Connection string
-CONN_STRING = "host=localhost port=5432 dbname=etldb user=postgres"
+# Connection string - supports environment variables for Docker/cloud deployment
+def get_connection_string():
+    """Get PostgreSQL connection string from environment or use defaults."""
+    host = os.getenv("DB_HOST", "localhost")
+    port = os.getenv("DB_PORT", "5432")
+    dbname = os.getenv("DB_NAME", "etldb")
+    user = os.getenv("DB_USER", "postgres")
+    password = os.getenv("DB_PASSWORD", "")
+    
+    if password:
+        return f"host={host} port={port} dbname={dbname} user={user} password={password}"
+    else:
+        return f"host={host} port={port} dbname={dbname} user={user}"
+
+CONN_STRING = get_connection_string()
 
 
 class DatabaseConnector:
@@ -429,12 +444,22 @@ class DatabaseConnector:
         }
 
     def insert_optimized_single_transaction(
-        self, table_name: str, data_model_list: list[BaseModel]
+        self, table_name: str, data_model_list: list[BaseModel], use_on_conflict: bool = True
     ):
+        """
+        Inserção otimizada usando COPY ou INSERT com ON CONFLICT DO NOTHING.
+        
+        Args:
+            table_name: Nome da tabela
+            data_model_list: Lista de BaseModel para inserir
+            use_on_conflict: Se True, usa INSERT com ON CONFLICT DO NOTHING (mais seguro para duplicatas).
+                           Se False, usa COPY (mais rápido mas falha se houver duplicatas).
+        """
         if not data_model_list:
             return 0
 
-        print("🚀 Inserção otimizada (COPY em transação única)")
+        method = "INSERT com ON CONFLICT" if use_on_conflict else "COPY"
+        print(f"🚀 Inserção otimizada ({method} em transação única)")
         start_time = time.perf_counter()
 
         data_dicts = [m.dict() for m in data_model_list]
@@ -445,35 +470,34 @@ class DatabaseConnector:
         with psycopg.connect(self.conn_str) as conn:
             with conn.cursor() as cur:
                 try:
-                    # buf = io.StringIO()
-                    # writer = csv.writer(
-                    #     buf,
-                    #     delimiter="\t",
-                    #     lineterminator="\n",
-                    #     quoting=csv.QUOTE_MINIMAL,
-                    #     escapechar="\\",
-                    # )
-                    # writer.writerows(values)
-                    # buf.seek(0)
-
-                    # with cur.copy(
-                    #     f"COPY {table_name} ({cols_str}) "
-                    #     "FROM STDIN WITH (FORMAT CSV, DELIMITER E'\\t')"
-                    # ) as copy:
-                    #     copy.write(buf.getvalue())
-
-                    # conn.commit()
-                    with cur.copy(f"COPY {table_name} ({cols_str}) FROM STDIN") as copy:
-                        for row in values:
-                            copy.write_row(row)
+                    if use_on_conflict:
+                        # Usa INSERT com ON CONFLICT DO NOTHING para ignorar duplicatas silenciosamente
+                        placeholders = ", ".join(["%s"] * len(columns))
+                        query = (
+                            f"INSERT INTO {table_name} ({cols_str}) VALUES ({placeholders}) "
+                            "ON CONFLICT (paper_id) DO NOTHING"
+                        )
+                        cur.executemany(query, values)
+                    else:
+                        # Usa COPY (mais rápido, mas falha se houver duplicatas)
+                        with cur.copy(f"COPY {table_name} ({cols_str}) FROM STDIN") as copy:
+                            for row in values:
+                                copy.write_row(row)
                     conn.commit()
+                    inserted = cur.rowcount if use_on_conflict else len(data_model_list)
                 except psycopg.errors.UniqueViolation:
+                    # Fallback: se ainda houver UniqueViolation (não deveria acontecer com ON CONFLICT)
                     print(
                         "⚠️ Alguns registros duplicados foram ignorados (já existentes)."
                     )
                     conn.rollback()
+                    inserted = 0
+                except Exception as e:
+                    print(f"❌ Erro na inserção: {e}")
+                    conn.rollback()
+                    inserted = 0
 
         duration = time.perf_counter() - start_time
-        print(f"✅ Inseridos {len(data_model_list)} registros em {duration:.2f}s")
+        print(f"✅ Inseridos {inserted:,} registros em {duration:.2f}s")
 
-        return len(data_model_list)
+        return inserted

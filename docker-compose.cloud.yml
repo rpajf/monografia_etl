@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: etl_postgres_cloud
+    volumes:
+      - postgres_data_cloud:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ""
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_DB: etldb
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - etl_network_cloud
+
+  # ETL Application with 10GB Memory Limit (Cloud Simulation)
+  etl_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.cloud
+    container_name: etl_app_cloud
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - /Users/raphaelportela/datasetcovid.zip:/data/datasetcovid.zip:ro
+      - ./output:/app/output
+      - ./sync_result:/app/sync_result
+      - ./async_result:/app/async_result
+    environment:
+      # Database connection (use service name, not localhost!)
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: etldb
+      DB_USER: postgres
+      DB_PASSWORD: ""
+      # Dataset path
+      DATASET_PATH: /data/datasetcovid.zip
+      # Python settings
+      PYTHONUNBUFFERED: 1
+    networks:
+      - etl_network_cloud
+    # Memory limit: 10GB (simulating cloud environment)
+    deploy:
+      resources:
+        limits:
+          memory: 10G
+        reservations:
+          memory: 1G
+    # Alternative: Use docker run with --memory=10g flag
+    command: python main.py
+
+volumes:
+  postgres_data_cloud:
+    driver: local
+
+networks:
+  etl_network_cloud:
+    driver: bridge
+
+

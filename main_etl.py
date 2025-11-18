@@ -33,31 +33,31 @@ if __name__ == "__main__":
     )
     # criar tabela artigos
     # connector.create_table(table_name='artigos_staging', columns='paper_id VARCHAR(100) PRIMARY KEY, file_name TEXT, title TEXT, body_text TEXT')
-    # connector.create_table(
-    #     table_name='metadata_staging',
-    #     columns="""
-    #         cord_uid VARCHAR(100) PRIMARY KEY,
-    #         sha VARCHAR(100),
-    #         source_x TEXT,
-    #         title TEXT,
-    #         doi VARCHAR(100),
-    #         pmcid VARCHAR(50),
-    #         pubmed_id VARCHAR(50),
-    #         license TEXT,
-    #         abstract TEXT,
-    #         publish_time VARCHAR(50),
-    #         authors TEXT,
-    #         journal TEXT,
-    #         mag_id VARCHAR(50),
-    #         who_covidence_id VARCHAR(50),
-    #         arxiv_id VARCHAR(50),
-    #         pdf_json_files TEXT,
-    #         pmc_json_files TEXT,
-    #         url TEXT,
-    #         s2_id VARCHAR(50),
-    #         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    #     """
-    # )
+    connector.create_table(
+        table_name='metadata_staging',
+        columns="""
+            cord_uid VARCHAR(100) PRIMARY KEY,
+            sha VARCHAR(100),
+            source_x TEXT,
+            title TEXT,
+            doi VARCHAR(100),
+            pmcid VARCHAR(50),
+            pubmed_id VARCHAR(50),
+            license TEXT,
+            abstract TEXT,
+            publish_time VARCHAR(50),
+            authors TEXT,
+            journal TEXT,
+            mag_id VARCHAR(50),
+            who_covidence_id VARCHAR(50),
+            arxiv_id VARCHAR(50),
+            pdf_json_files TEXT,
+            pmc_json_files TEXT,
+            url TEXT,
+            s2_id VARCHAR(50),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        """
+    )
     # body_text_df, articles_df = analyzer.get_files_data_as_dataframe(number_of_files=1)
     # print(body_text_df)
     asyncio.run(benchmark_insert.processamento_async())

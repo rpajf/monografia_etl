@@ -414,3 +414,4 @@ def log_batch_metrics(batch_num, records, duration, memory_mb):
 **Próximo passo:** Completar pipeline e executar experimentos sistemáticos
 
 
+

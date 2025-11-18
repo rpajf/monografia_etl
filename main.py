@@ -1,11 +1,13 @@
 import asyncio
 import zipfile
+import os
 
 from benchmark import BenchmarkExecutor
 from etl_psycopg3 import DatabaseConnector
 from fetch_db import ZipFileAnalyzer
 
-zip_path = "/Users/raphaelportela/datasetcovid.zip"
+# Get dataset path from environment variable or use default
+zip_path = os.getenv("DATASET_PATH", "/Users/raphaelportela/datasetcovid.zip")
 
 
 def get_total_files():
@@ -22,15 +24,15 @@ if __name__ == "__main__":
     print(f"📊 Total de arquivos JSON encontrados: {total_files:,}")
     
     # Synchronous benchmark (COPY method - single transaction)
-    print("\n" + "="*70)
-    print("🔵 BENCHMARK SÍNCRONO - Método COPY (Transação Única)")
-    print("="*70)
-    benchmark_sync = BenchmarkExecutor(
-        files_to_process=total_files,
-        offset=0,
-        pipeline=analyzer.execute_batch_insert
-    )
-    benchmark_sync.processamento()
+    # print("\n" + "="*70)
+    # print("🔵 BENCHMARK SÍNCRONO - Método COPY (Transação Única)")
+    # print("="*70)
+    # benchmark_sync = BenchmarkExecutor(
+    #     files_to_process=total_files,
+    #     offset=0,
+    #     pipeline=analyzer.execute_batch_insert
+    # )
+    # benchmark_sync.processamento()
     
     # Uncomment below to run async benchmark for comparison
     # print("\n" + "="*70)

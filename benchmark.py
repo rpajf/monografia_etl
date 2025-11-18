@@ -11,7 +11,7 @@ from etl_psycopg3 import DatabaseConnector
 
 
 class BenchmarkExecutor:
-    def __init__(self, files_to_process, offset, pipeline, max_tasks: int = 4):
+    def __init__(self, files_to_process, offset, pipeline, max_tasks: int = 4, async_result_dir: str = None):
         self.files_to_process = files_to_process
         self.offset = offset
         self.zip_path = "/Users/raphaelportela/datasetcovid.zip"
@@ -21,6 +21,11 @@ class BenchmarkExecutor:
         self.process = psutil.Process(os.getpid())
         self._memory_samples = []
         self._monitoring_active = False
+        # Create output directories if they don't exist
+        self.sync_result_dir = "sync_result"
+        self.async_result_dir = async_result_dir if async_result_dir else "async_result"
+        os.makedirs(self.sync_result_dir, exist_ok=True)
+        os.makedirs(self.async_result_dir, exist_ok=True)
 
     def _get_memory_mb(self):
         """Get current memory usage in MB"""
@@ -432,7 +437,9 @@ class BenchmarkExecutor:
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{int(x):,}'))
         
         fig.tight_layout()
-        time_rows_path = f"{prefix}benchmark_time_vs_rows.png"
+        # Save to appropriate directory based on prefix
+        output_dir = self.sync_result_dir if prefix == "sync_" else self.async_result_dir
+        time_rows_path = os.path.join(output_dir, f"{prefix}benchmark_time_vs_rows.png")
         fig.savefig(time_rows_path, dpi=300, bbox_inches="tight")
         print(f"📈 Gráfico tempo vs registros salvo como {time_rows_path}")
 
@@ -549,7 +556,8 @@ class BenchmarkExecutor:
             fontweight="bold",
             y=0.98,
         )
-        memory_path = f"{prefix}benchmark_memory_and_performance.png"
+        output_dir = self.sync_result_dir if prefix == "sync_" else self.async_result_dir
+        memory_path = os.path.join(output_dir, f"{prefix}benchmark_memory_and_performance.png")
         fig.savefig(memory_path, dpi=300, bbox_inches="tight")
         print(f"📈 Gráfico de memória e performance salvo como {memory_path}")
 
@@ -592,7 +600,8 @@ class BenchmarkExecutor:
         axes[1, 1].grid(True, alpha=0.3)
 
         plt.tight_layout()
-        dashboard_path = f"{prefix}benchmark_dashboard.png"
+        output_dir = self.sync_result_dir if prefix == "sync_" else self.async_result_dir
+        dashboard_path = os.path.join(output_dir, f"{prefix}benchmark_dashboard.png")
         fig.savefig(dashboard_path, dpi=300, bbox_inches="tight")
         print(f"📈 Dashboard completo salvo como {dashboard_path}")
 
@@ -667,7 +676,8 @@ class BenchmarkExecutor:
                     axes[idx].legend(loc="upper left", fontsize=9)
             
             plt.tight_layout()
-            memory_timeline_path = f"{prefix}benchmark_memory_timeline.png"
+            output_dir = self.sync_result_dir if prefix == "sync_" else self.async_result_dir
+            memory_timeline_path = os.path.join(output_dir, f"{prefix}benchmark_memory_timeline.png")
             fig.savefig(memory_timeline_path, dpi=300, bbox_inches="tight")
             print(f"📈 Gráfico de memória ao longo do tempo salvo como {memory_timeline_path}")
 
